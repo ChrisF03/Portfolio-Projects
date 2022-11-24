@@ -11,7 +11,7 @@ import requests
 
 st. set_page_config(layout="wide")
 
-image = Image.open(r'app_1_MLB_eda/mlb-logo.png')
+image = Image.open('mlb-logo.png') #.open(r"app_1_MLB_eda/mlb-logo.png") on GitHub
 st.image(image, use_column_width=True)
 
 st.title('MLB Regular Season Stats Explorer')
@@ -124,21 +124,37 @@ with tab1:
             st.header(f'''{str(selected_team[:]).replace("[", "").replace("]", "").replace("'","")} Team Analysis, ''' f'{(selected_year)}''')
         else :
             st.header('League Analysis, 'f'{(selected_year)}')
-        st.markdown('''
-        * Selecting 'None' for team will show ranking-qualified league leaders for each stat (min. 502 PA).
-        * Selecting a team will show up to the top 5 qualified players in that team for each category.
-        * The correlation plot is in reference to the team and year selected. If team selection is 'None', correlation is league-wide.
-        ''')
+
+        if selected_year == 2020:
+            st.markdown('''
+            * Due to the COVID-19 pandemic, a shortened season of just 60 games was played.
+            * Selecting 'None' for team will show ranking-qualified league leaders for each stat (min. 186 PA in 2020).
+            * Selecting a team will show up to the top 5 qualified players in that team for each category.
+            * The correlation plot is in reference to the team and year selected. If team selection is 'None', correlation is league-wide.
+            ''')
+        else:
+            st.markdown('''
+            * Selecting 'None' for team will show ranking-qualified league leaders for each stat (min. 502).
+            * Selecting a team will show up to the top 5 qualified players in that team for each category.
+            * The correlation plot is in reference to the team and year selected. If team selection is 'None', correlation is league-wide.
+            ''')
         hit_selected_team.to_csv('output.csv',index=False)
         df = pd.read_csv('output.csv')
-# averages among ranking-qualified hitters across the MLB # (min.502 PA)
-        qualifier = hit_stats[hit_stats['PA']>=502]
-        qualified = pd.DataFrame(qualifier.mean())
-        qualified.columns=['League Average per Hitter']
-# averages among qualified hitters on each team #
-        team = hit_selected_team[hit_selected_team['PA']>=502]
-        team_qualified = pd.DataFrame(team.mean())
-        team_qualified.columns=[''f'{selected_team} ' 'Average per Hitter']
+# averages among ranking-qualified hitters across the MLB # (min.502 PA, min. 186 PA for shortened 2020 Season)
+        if selected_year == 2020 :
+            qualifier = hit_stats[hit_stats['PA']>=186]
+            qualified = pd.DataFrame(qualifier.mean())
+            qualified.columns=['League Average per Hitter']
+            team = hit_selected_team[hit_selected_team['PA']>=186]
+            team_qualified = pd.DataFrame(team.mean())
+            team_qualified.columns=[''f'{selected_team} ' 'Average per Hitter']
+        else :
+            qualifier = hit_stats[hit_stats['PA']>=502]
+            qualified = pd.DataFrame(qualifier.mean())
+            qualified.columns=['League Average per Hitter']
+            team = hit_selected_team[hit_selected_team['PA']>=502]
+            team_qualified = pd.DataFrame(team.mean())
+            team_qualified.columns=[''f'{selected_team} ' 'Average per Hitter']
 # league avg vs. team average amongst qualified hitters #
         compare = qualified.join(team_qualified)
 
@@ -221,21 +237,37 @@ with tab2:
             st.header(f'''{str(selected_team[:]).replace("[", "").replace("]", "").replace("'","")} Team Analysis, ''' f'{(selected_year)}''')
         else :
             st.header('League Analysis, 'f'{(selected_year)}')
-        st.markdown('''
-        * Selecting 'None' for team will show ranking-qualified league leaders for each stat (min. 162 IP).
-        * Selecting a team will show up to the top 5 qualified players in that team for each category.
-        * The correlation plot is in reference to the team and year selected. If team selection is 'None', correlation is league-wide.
-        ''')
+
+        if selected_year == 2020 :
+            st.markdown('''
+            * Due to the COVID-19 pandemic, a shortened season of just 60 games was played.
+            * Selecting 'None' for team will show ranking-qualified league leaders for each stat (min. 60 IP in 2020).
+            * Selecting a team will show up to the top 5 qualified players in that team for each category.
+            * The correlation plot is in reference to the team and year selected. If team selection is 'None', correlation is league-wide.
+            ''')
+        else:
+            st.markdown('''
+            * Selecting 'None' for team will show ranking-qualified league leaders for each stat (min. 162 IP).
+            * Selecting a team will show up to the top 5 qualified players in that team for each category.
+            * The correlation plot is in reference to the team and year selected. If team selection is 'None', correlation is league-wide.
+            ''')
         pitch_selected_team.to_csv('output.csv',index=False)
         df = pd.read_csv('output.csv')
 # averages among ranking-qualified pitchers across the MLB # (min.162 IP)
-        p_qualifier = pitch_stats[pitch_stats['IP']>=162]
-        p_qualified = pd.DataFrame(p_qualifier.mean())
-        p_qualified.columns=['League Average per Pitcher']
-# averages among ranking-qualified pitchers on each team #
-        p_team = pitch_selected_team[pitch_selected_team['IP']>=162]
-        p_team_qualified = pd.DataFrame(p_team.mean())
-        p_team_qualified.columns=[''f'{selected_team} ' 'Average per Pitcher']
+        if selected_year == 2020 :
+            p_qualifier = pitch_stats[pitch_stats['IP']>=60]
+            p_qualified = pd.DataFrame(p_qualifier.mean())
+            p_qualified.columns=['League Average per Pitcher']
+            p_team = pitch_selected_team[pitch_selected_team['IP']>=60]
+            p_team_qualified = pd.DataFrame(p_team.mean())
+            p_team_qualified.columns=[''f'{selected_team} ' 'Average per Pitcher']
+        else :
+            p_qualifier = pitch_stats[pitch_stats['IP']>=162]
+            p_qualified = pd.DataFrame(p_qualifier.mean())
+            p_qualified.columns=['League Average per Pitcher']
+            p_team = pitch_selected_team[pitch_selected_team['IP']>=162]
+            p_team_qualified = pd.DataFrame(p_team.mean())
+            p_team_qualified.columns=[''f'{selected_team} ' 'Average per Pitcher']
  # league avg vs. team average amongst qualified pitchers #
         p_compare = p_qualified.join(p_team_qualified)
 
