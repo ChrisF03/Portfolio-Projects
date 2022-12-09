@@ -134,7 +134,7 @@ with tab1:
             ''')
         else:
             st.markdown('''
-            * Selecting 'None' for team will show ranking-qualified league leaders for each stat (min. 502).
+            * Selecting 'None' for team will show ranking-qualified league leaders for each stat (min. 502 PA).
             * Selecting a team will show up to the top 5 qualified players in that team for each category.
             * The correlation plot is in reference to the team and year selected. If team selection is 'None', correlation is league-wide.
             ''')
