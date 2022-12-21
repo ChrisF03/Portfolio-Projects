@@ -10,7 +10,7 @@ from sklearn.svm import SVC
 
 st. set_page_config(layout="wide")
 #
-image = Image.open('app_2_wine_classifier/Vinho_Verde_Logo.jpg')
+image = Image.open('Vinho_Verde_Logo.jpg') #.open(r"app_2_wine_classifier/vinho-verde-logo.png") on GitHub
 st.image(image)
 
 st.title('Wine Quality Classification')
@@ -20,7 +20,7 @@ Vinho Verde refers to Portuguese wine that originated in the historic Minho prov
 
 This app allows user to predict Vinho Verde wine quality and type (white or red) based on physicochemical qualities!
 
-A Support Vector Classifier is used to predict the wine type while a K-Neighbors Classifier is used to predict the wine quality. 
+A Support Vector Classifier is used to predict the wine type while a K-Neighbors Classifier is used to predict the wine quality.
 
 * **Python libraries:** Streamlit, Pandas, NumPy, Sklearn, Matplotlib, Seaborn, Pillow
 * **Data source:** [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/wine+quality)
@@ -165,25 +165,25 @@ with c1 :
     st.write('**Prediction based on your inputs** : ')
     st.dataframe(qual_predict)
 
+    st.write('**Corresponding Labels**')
+    st.dataframe(type_key)
+
     st.write('**Prediction probability for each value (%)** : ')
     prediction_proba2 = model2.predict_proba(df)
     proba2 = pd.DataFrame(prediction_proba2*100,columns=['Red','White'])
     st.dataframe(proba2)
-
-    st.write('**Corresponding Labels**')
-    st.dataframe(type_key)
 with c2 :
     st.header('Quality')
     st.write('**Prediction based on your inputs** : ')
     st.dataframe(predict)
 
+    st.write('**Corresponding Labels**')
+    st.dataframe(key)
+
     st.write('**Prediction probability for each value (%)** : ')
     prediction_proba = model.predict_proba(df)
     proba = pd.DataFrame(prediction_proba*100,columns=['Low','Average','High'])
     st.dataframe(proba)
-
-    st.write('**Corresponding Labels**')
-    st.dataframe(key)
 st.write('---')
 ############################# Dataset EDA #################################.
 st.set_option('deprecation.showPyplotGlobalUse', False)
