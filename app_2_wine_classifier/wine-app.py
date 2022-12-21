@@ -32,7 +32,7 @@ red.insert(loc = 0,
           column = 'type',
           value = 'Red')
 
-white = pd.read_csv('app_2_wine_classifier/winequality-white.cv')
+white = pd.read_csv('app_2_wine_classifier/winequality-white.csv')
 white.insert(loc = 0,
           column = 'type',
           value = 'White')
