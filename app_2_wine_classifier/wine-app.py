@@ -8,7 +8,7 @@ from sklearn import preprocessing
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 
-st. set_page_config(layout="wide")
+st.set_page_config(page_title='Wine Classification', page_icon=:wine_glass:,layout="wide")
 #
 image = Image.open(r"app_2_wine_classifier/Vinho_Verde_Logo.jpg")
 st.image(image)
