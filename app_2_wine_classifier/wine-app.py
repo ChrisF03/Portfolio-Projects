@@ -27,12 +27,12 @@ A Support Vector Classifier is used to predict the wine type while a K-Neighbors
 """)
 #########################################################
 ###### Reading Data into Pandas Dataframes #########
-red = pd.read_csv('winequality-red.csv')
+red = pd.read_csv('app_2_wine_classifier/winequality-red.csv')
 red.insert(loc = 0,
           column = 'type',
           value = 'Red')
 
-white = pd.read_csv('winequality-white.csv')
+white = pd.read_csv('app_2_wine_classifier/winequality-white.cv')
 white.insert(loc = 0,
           column = 'type',
           value = 'White')
