@@ -10,7 +10,7 @@ from sklearn.svm import SVC
 
 st. set_page_config(layout="wide")
 #
-image = Image.open('Vinho_Verde_Logo.jpg') #.open(r"app_2_wine_classifier/vinho-verde-logo.png") on GitHub
+image = Image.open('app_2_wine_classifier/Vinho_Verde_Logo.jpg')
 st.image(image)
 
 st.title('Wine Quality Classification')
