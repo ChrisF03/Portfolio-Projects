@@ -9,7 +9,7 @@ from bs4 import Comment
 from PIL import Image
 import requests
 
-st. set_page_config(layout="wide")
+st.set_page_config(page_title='MLB Analysis', page_icon=':baseball:',layout="wide")
 
 image = Image.open(r"app_1_MLB_eda/mlb-logo.png")
 st.image(image, use_column_width=True)
