@@ -69,23 +69,16 @@ df['smoker'] = df['smoker'].map(smoker)
 region = {'northeast' : 0, 'northwest': 1, 'southeast' : 2, 'southwest' : 3}
 X['region'] =  X['region'].map(region)
 df['region'] = df['region'].map(region)
-# label_encoder = preprocessing.LabelEncoder()
-# encoded_X = X.apply(label_encoder.fit_transform)
 #
 scaler = preprocessing.StandardScaler()
 standard_df = scaler.fit_transform(X)
 X = pd.DataFrame(standard_df, columns=X.columns)
-#
-# encoded_df = df.apply(label_encoder.fit_transform)
-# standard_params = scaler.fit_transform(encoded_df)
-# encoded_df = pd.DataFrame(standard_params,columns=df.columns)
-# encoded_df
 ######################################################################
 # Building our model
 rfr = RandomForestRegressor(criterion="absolute_error",max_features='log2',n_estimators=150,n_jobs=1,random_state=4)
 #
 rfr.fit(X,Y)
-# encoded_df = df.apply(label_encoder.fit_transform)
+
 cost_prediction = rfr.predict(df)
 cost_predict = pd.DataFrame(cost_prediction, columns=['Cost (USD)'])
 #
