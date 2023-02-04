@@ -1,6 +1,6 @@
-Data Source : https://github.com/owid/covid-19-data/tree/master/public/data
+--Data Source : https://github.com/owid/covid-19-data/tree/master/public/data
 
-Data used in this analysis is recent as of 1/31/2023
+--Data used in this analysis is recent as of 1/31/2023
 -------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------
 SELECT * 
