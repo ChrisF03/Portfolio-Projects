@@ -1,6 +1,6 @@
-Data Links
-Artists  : https://github.com/MuseumofModernArt/collection/blob/master/Artists.csv
-Artworks : https://github.com/MuseumofModernArt/collection/blob/master/Artworks.csv
+-- Data Links
+-- Artists  : https://github.com/MuseumofModernArt/collection/blob/master/Artists.csv
+-- Artworks : https://github.com/MuseumofModernArt/collection/blob/master/Artworks.csv
 
 ####################################################################################
 ####################################################################################
