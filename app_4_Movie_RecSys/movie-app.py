@@ -17,7 +17,7 @@ background-size: cover
 """,
 unsafe_allow_html=True )
 
-title_image = Image.open(r"C:\Users\ferna\OneDrive\Desktop\streamlit apps\app_4_Movie_RecSys\film-reel.png")
+title_image = Image.open(r"app_4_Movie_RecSys/film-reel.png")
 st.image(title_image, use_column_width=True)
 
 st.title('Movie Recommender System')
@@ -270,5 +270,5 @@ if columns[1].button('Recommend'):
 
 st.write('---')
 st.write('All data is atrributed to :')
-image = Image.open(r"C:\Users\ferna\OneDrive\Desktop\streamlit apps\app_4_Movie_RecSys\tmdb-logo.png")
+image = Image.open(r"app_4_Movie_RecSys/tmdb-logo.png")
 st.image(image, use_column_width=False)
