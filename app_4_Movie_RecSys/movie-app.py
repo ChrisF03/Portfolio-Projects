@@ -91,7 +91,7 @@ def get_movie_revenue(movie_id):
     return 'USD ' + str(data['revenue'])
 
 movies_dict = pickle.load(open(r'app_4_Movie_RecSys/movies_dict.pkl', 'rb'))
-similarity = pickle.load(open('similarity.pkl', 'rb'))
+similarity = pickle.load(open(r'app_4_Movie_RecSys/similarity.pkl', 'rb'))
 movies = pd.DataFrame(movies_dict)
 
 def recommend(movie):
