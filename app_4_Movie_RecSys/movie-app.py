@@ -25,7 +25,7 @@ st.title('Movie Recommender System')
 st.markdown('''
 Using recommendation systems may have been a thing of complexity and even luxury for companies in the past, but in the increasingly high-speed, high-tech world we live in today it has become a necessity to most. Recommender systems have revolutionized e-commerce, video/music streaming services, and even online dating. Corporations like Netflix, Amazon and Youtube, have vaulted themselves into being among the most valuable companies in the world due, in very large part, to the recommendation systems that consumers are so reliant on.
 
-In this project, we will build a content-based movie recommendation system based on features such as genre, movie overview, and cast and crew, among others.  
+In this project, we built a content-based movie recommendation system based on features such as genre, movie overview, and cast and crew, among others.  
 
 This dataset was generated from The Movie Database API, sourced from Kaggle and can be found here : 
 > **[Kaggle Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata?select=tmdb_5000_movies.csv)**
