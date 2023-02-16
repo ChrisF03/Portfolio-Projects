@@ -37,7 +37,7 @@ The raw dataset contains 5000 movies, with release dates ranging from the year 1
 
 st.write('---')
 
-df = pd.read_csv(r"C:\Users\ferna\OneDrive\Desktop\streamlit apps\app_4_Movie_RecSys\cleaned_movies.csv")
+df = pd.read_csv(r"app_4_Movie_RecSys/cleaned_movies.csv")
 
 def get_poster(movie_id) : 
     response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=bb0679bfdbbe5216f83c0b786a34410f&language=en-US.'.format(movie_id))
