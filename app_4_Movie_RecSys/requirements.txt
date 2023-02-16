@@ -1,4 +1,4 @@
 streamlit==1.14.0
 pandas==1.5.1
 requests==2.28.1
-PIL==9.3.0
+PILLOW==9.3.0
