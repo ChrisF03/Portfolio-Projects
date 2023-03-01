@@ -11,5 +11,6 @@ movie likeness.<br>
 that displays details such as the movie poster, overview, cast and crew, etc.
 
 Some looks at the app:
+
 ![Screenshot 2023-03-01 014111](https://user-images.githubusercontent.com/103148784/222064274-78e7a052-100e-44fc-b8a7-6ab23f49a007.png)
 ![Screenshot 2023-03-01 014351](https://user-images.githubusercontent.com/103148784/222064278-d6e50656-34cd-4290-a9b5-972cb7ed414a.png)
