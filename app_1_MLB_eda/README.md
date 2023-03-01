@@ -9,4 +9,7 @@ and prepare it for use.<br>
 • Created input widgets to filter data by team and/or year using the Streamlit API.<br>
 • Designed a seperate EDA section that generates different visualizations depending on filters applied.
 
-![app](https://drive.google.com/file/d/15fOH61-RY1Z56ax9i4d1ZWK3cRLK87a-/view?usp=sharing)
+Here is a 
+
+![scraper-screenshot](https://user-images.githubusercontent.com/103148784/222055668-50b21de8-2507-42ea-abfe-b0e768d48e74.png)
+
