@@ -12,7 +12,7 @@ that displays details such as the movie poster, overview, cast and crew, etc.
 
 #### To run this app : ####
 1. PIP install streamlit and clone this repo onto your machine
-2. Run the .ipynb file to obtain the similarity.pkl file and put it in the cloned repo folder.
+2. Run the .ipynb file to obtain the similarity.pkl file and put it in the cloned repo folder. (The similarity.pkl file is too large for GitHub)
 3. Open your command prompt in said folder and type ... Streamlit run movie-app.py
 
 Some looks at the app:
