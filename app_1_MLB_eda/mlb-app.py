@@ -25,7 +25,7 @@ st.header('Display Player Stats of Selected Team')
 tab1, tab2 = st.tabs(["Hitting", "Pitching"])
 
 st.sidebar.title('User Input Features')
-selected_year = st.sidebar.selectbox('Select Year', list(reversed(range(1998,2023))))
+selected_year = st.sidebar.selectbox('Select Year', list(reversed(range(1998,2024))))
 
 ################### Web scraping of MLB player stats ##########################
 # Hitting Stats #
