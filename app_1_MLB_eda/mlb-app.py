@@ -148,7 +148,7 @@ with tab1:
             team = hit_selected_team[hit_selected_team['PA']>=1]
             team_qualified = pd.DataFrame(team.mean())
             team_qualified.columns=[''f'{selected_team} ' 'Average per Hitter']
-        if selected_year == 2020 :
+        elif selected_year == 2020 :
             qualifier = hit_stats[hit_stats['PA']>=186]
             qualified = pd.DataFrame(qualifier.mean())
             qualified.columns=['League Average per Hitter']
