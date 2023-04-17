@@ -30,54 +30,29 @@ selected_year = st.sidebar.selectbox('Select Year', list(reversed(range(1998,202
 ################### Web scraping of MLB player stats ##########################
 # Hitting Stats #
 with tab1:
-    if selected_year == 2023 :
-        def hit_data(year):
-            url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-batting.shtml"
-            r = requests.get(url).text
-            stats_page = BeautifulSoup(r,'lxml')
-            comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
-            str1 = ''.join(comment)
-            test1 = BeautifulSoup(str1,'lxml')
-            data = pd.read_html(str(test1))
-            df = pd.DataFrame(data[0])
-            df.drop(['Rk','Pos\xa0Summary'],axis=1, inplace=True)
-            df.drop(df.tail(1).index,inplace=True)
-            df.drop_duplicates(keep=False,inplace=True)
-            col = (['Age','G','PA','AB','R','H','2B','3B','HR','RBI','SB','CS','BB','SO','BA','OBP','SLG','OPS','OPS+','TB','GDP','HBP','SH','SF','IBB'])
-            for x in col:
-                df[x] = pd.to_numeric(df[x])
-            df = df[df.Tm != 'TOT']
-            df['Name'] = df['Name'].apply(lambda x: str(x).replace(u'\xa0', u' '))
-            df['Name'] = df['Name'].map(lambda x: x.rstrip('*#'))
-            df = df.reset_index(drop=True)
-            hit_stats = df.set_index('Name')
-            return hit_stats
-        hit_stats = hit_data(selected_year)
-        
-    if selected_year == list(reversed(range(1998,2023))) :
-        @st.cache
-        def hit_data(year):
-            url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-batting.shtml"
-            r = requests.get(url).text
-            stats_page = BeautifulSoup(r,'lxml')
-            comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
-            str1 = ''.join(comment)
-            test1 = BeautifulSoup(str1,'lxml')
-            data = pd.read_html(str(test1))
-            df = pd.DataFrame(data[0])
-            df.drop(['Rk','Pos\xa0Summary'],axis=1, inplace=True)
-            df.drop(df.tail(1).index,inplace=True)
-            df.drop_duplicates(keep=False,inplace=True)
-            col = (['Age','G','PA','AB','R','H','2B','3B','HR','RBI','SB','CS','BB','SO','BA','OBP','SLG','OPS','OPS+','TB','GDP','HBP','SH','SF','IBB'])
-            for x in col:
-                df[x] = pd.to_numeric(df[x])
-            df = df[df.Tm != 'TOT']
-            df['Name'] = df['Name'].apply(lambda x: str(x).replace(u'\xa0', u' '))
-            df['Name'] = df['Name'].map(lambda x: x.rstrip('*#'))
-            df = df.reset_index(drop=True)
-            hit_stats = df.set_index('Name')
-            return hit_stats
-        hit_stats = hit_data(selected_year)
+    @st.cache
+    def hit_data(year):
+        url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-batting.shtml"
+        r = requests.get(url).text
+        stats_page = BeautifulSoup(r,'lxml')
+        comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
+        str1 = ''.join(comment)
+        test1 = BeautifulSoup(str1,'lxml')
+        data = pd.read_html(str(test1))
+        df = pd.DataFrame(data[0])
+        df.drop(['Rk','Pos\xa0Summary'],axis=1, inplace=True)
+        df.drop(df.tail(1).index,inplace=True)
+        df.drop_duplicates(keep=False,inplace=True)
+        col = (['Age','G','PA','AB','R','H','2B','3B','HR','RBI','SB','CS','BB','SO','BA','OBP','SLG','OPS','OPS+','TB','GDP','HBP','SH','SF','IBB'])
+        for x in col:
+            df[x] = pd.to_numeric(df[x])
+        df = df[df.Tm != 'TOT']
+        df['Name'] = df['Name'].apply(lambda x: str(x).replace(u'\xa0', u' '))
+        df['Name'] = df['Name'].map(lambda x: x.rstrip('*#'))
+        df = df.reset_index(drop=True)
+        hit_stats = df.set_index('Name')
+        return hit_stats
+    hit_stats = hit_data(selected_year)
 
 # Pitching Stats #
 with tab2:
