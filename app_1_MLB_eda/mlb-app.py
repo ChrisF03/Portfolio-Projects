@@ -54,7 +54,7 @@ with tab1:
             return hit_stats
         hit_stats = hit_data(selected_year)
         
-    if selected_year = list(reversed(range(1998,2023))) :
+    if selected_year == list(reversed(range(1998,2023))) :
         @st.cache
         def hit_data(year):
             url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-batting.shtml"
