@@ -145,7 +145,7 @@ with tab1:
         if selected_year == 2023:
             games_played = 47
             current_time = datetime.datetime.now().time()
-            if current_time.hour == 2 and current_time.minute == 30:
+            if current_time.hour == 1 and current_time.minute == 0:
                 games_played = min(games_played + 1, 162)
             else:
                 games_played = min(games_played, 162)
@@ -278,7 +278,7 @@ with tab2:
         if selected_year == 2023 :
             games_played = 47
             current_time = datetime.datetime.now().time()
-            if current_time.hour == 2 and current_time.minute == 30 :
+            if current_time.hour == 1 and current_time.minute == 0 :
                 games_played = min(games_played + 1, 162)
             else:
                 games_played = min(games_played, 162)
