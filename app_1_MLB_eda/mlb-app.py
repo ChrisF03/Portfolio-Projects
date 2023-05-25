@@ -30,7 +30,7 @@ selected_year = st.sidebar.selectbox('Select Year', list(reversed(range(1998,202
 ################### Web scraping of MLB player stats ##########################
 # Hitting Stats #
 with tab1:
-    @st.cache
+    @st.cache_data
     def hit_data(year):
         url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-batting.shtml"
         r = requests.get(url).text
@@ -56,7 +56,7 @@ with tab1:
 
 # Pitching Stats #
 with tab2:
-    @st.cache
+    @st.cache_data
     def pitch_data(year):
         url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-pitching.shtml"
         r = requests.get(url).text
