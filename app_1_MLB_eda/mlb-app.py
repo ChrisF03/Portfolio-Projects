@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 from bs4 import Comment
 from PIL import Image
 import requests
+import DateTime
 
 st.set_page_config(page_title='MLB Analysis', page_icon=':baseball:',layout="wide")
 
@@ -141,13 +142,24 @@ with tab1:
         hit_selected_team.to_csv('output.csv',index=False)
         df = pd.read_csv('output.csv')
 # averages among ranking-qualified hitters across the MLB # (min.502 PA, min. 186 PA for shortened 2020 Season)
-        if selected_year == 2023 :
-            qualifier = hit_stats[hit_stats['PA']>=(47*3.1)]
+        if selected_year == 2023:
+            games_played = 47
+            current_time = datetime.datetime.now().time()
+            if current_time.hour == 2 and current_time.minute == 30:
+                games_played = games_played += 1
+            qualifier = hit_stats[hit_stats['PA'] >= (games_played * 3.1)]
             qualified = pd.DataFrame(qualifier.mean())
-            qualified.columns=['League Average per Hitter']
-            team = hit_selected_team[hit_selected_team['PA']>=(47*3.1)]
+            qualified.columns = ['League Average per Hitter']
+            team = hit_selected_team[hit_selected_team['PA'] >= (games_played * 3.1)]
             team_qualified = pd.DataFrame(team.mean())
-            team_qualified.columns=[''f'{selected_team} ' 'Average per Hitter']
+            team_qualified.columns = [f'{selected_team} Average per Hitter']
+#         if selected_year == 2023 :
+#             qualifier = hit_stats[hit_stats['PA']>=(47*3.1)]
+#             qualified = pd.DataFrame(qualifier.mean())
+#             qualified.columns=['League Average per Hitter']
+#             team = hit_selected_team[hit_selected_team['PA']>=(47*3.1)]
+#             team_qualified = pd.DataFrame(team.mean())
+#             team_qualified.columns=[''f'{selected_team} ' 'Average per Hitter']
         elif selected_year == 2020 :
             qualifier = hit_stats[hit_stats['PA']>=186]
             qualified = pd.DataFrame(qualifier.mean())
@@ -261,13 +273,24 @@ with tab2:
         pitch_selected_team.to_csv('output.csv',index=False)
         df = pd.read_csv('output.csv')
 # averages among ranking-qualified pitchers across the MLB # (min.162 IP)
-        if selected_year == 2023 :
-            p_qualifier = pitch_stats[pitch_stats['IP']>=47]
+          if selected_year == 2023:
+            games_played = 47
+            current_time = datetime.datetime.now().time()
+            if current_time.hour == 2 and current_time.minute == 30
+                games_played = games_played += 1
+            p_qualifier = pitch_stats[pitch_stats['IP']>=games_played]
             p_qualified = pd.DataFrame(p_qualifier.mean())
             p_qualified.columns=['League Average per Pitcher']
-            p_team = pitch_selected_team[pitch_selected_team['IP']>=47]
+            p_team = pitch_selected_team[pitch_selected_team['IP']>=games_played]
             p_team_qualified = pd.DataFrame(p_team.mean())
             p_team_qualified.columns=[''f'{selected_team} ' 'Average per Pitcher']
+#         if selected_year == 2023 :
+#             p_qualifier = pitch_stats[pitch_stats['IP']>=47]
+#             p_qualified = pd.DataFrame(p_qualifier.mean())
+#             p_qualified.columns=['League Average per Pitcher']
+#             p_team = pitch_selected_team[pitch_selected_team['IP']>=47]
+#             p_team_qualified = pd.DataFrame(p_team.mean())
+#             p_team_qualified.columns=[''f'{selected_team} ' 'Average per Pitcher']
         elif selected_year == 2020 :
             p_qualifier = pitch_stats[pitch_stats['IP']>=60]
             p_qualified = pd.DataFrame(p_qualifier.mean())
