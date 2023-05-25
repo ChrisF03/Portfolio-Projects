@@ -273,10 +273,10 @@ with tab2:
         pitch_selected_team.to_csv('output.csv',index=False)
         df = pd.read_csv('output.csv')
 # averages among ranking-qualified pitchers across the MLB # (min.162 IP)
-        if selected_year == 2023:
+        if selected_year == 2023 :
             games_played = 47
             current_time = datetime.datetime.now().time()
-            if current_time.hour == 2 and current_time.minute == 30
+            if current_time.hour == 2 and current_time.minute == 30 :
                 games_played = games_played + 1
             p_qualifier = pitch_stats[pitch_stats['IP']>=games_played]
             p_qualified = pd.DataFrame(p_qualifier.mean())
