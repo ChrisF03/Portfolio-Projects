@@ -144,7 +144,7 @@ with tab1:
 # averages among ranking-qualified hitters across the MLB # (min.502 PA, min. 186 PA for shortened 2020 Season)
         if selected_year == 2023:
             games_played = 47
-            current_time = datetime.datetime.now().time()
+            current_time = datetime.now().time()
             if current_time.hour == 2 and current_time.minute == 30:
                 games_played = games_played + 1
             qualifier = hit_stats[hit_stats['PA'] >= (games_played * 3.1)]
