@@ -146,7 +146,7 @@ with tab1:
             games_played = 47
             current_time = datetime.datetime.now().time()
             if current_time.hour == 2 and current_time.minute == 30:
-                games_played = games_played += 1
+                games_played = games_played + 1
             qualifier = hit_stats[hit_stats['PA'] >= (games_played * 3.1)]
             qualified = pd.DataFrame(qualifier.mean())
             qualified.columns = ['League Average per Hitter']
@@ -277,7 +277,7 @@ with tab2:
             games_played = 47
             current_time = datetime.datetime.now().time()
             if current_time.hour == 2 and current_time.minute == 30
-                games_played = games_played += 1
+                games_played = games_played + 1
             p_qualifier = pitch_stats[pitch_stats['IP']>=games_played]
             p_qualified = pd.DataFrame(p_qualifier.mean())
             p_qualified.columns=['League Average per Pitcher']
