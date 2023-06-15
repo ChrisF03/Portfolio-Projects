@@ -36,7 +36,7 @@ Below is a comprehensive list of every project I have completed,<br> grouped by 
 <!-- * [Full-Stack]() -->
 
 # Python 
-|Project|Description|Tools Used|App Link|
+|Project|Description|Libraries Used|App Link|
 |-------|-----------|---------------|--------|
 |[app_1_MLB_eda](https://github.com/ChrisF03/Portfolio-Projects/tree/main/app_1_MLB_eda)|-Scraped Baseball-Reference website for cumulative player stats for each season since 1998. <br><br>-Created an interactive app with Streamlit where users can select team and year and receive a downloadable dataframe and accompanying exploratory analysis.|Python, Pandas, NumPy, Requests, BeautifulSoup, Streamlit|https://mlb-eda.streamlit.app/|
 |[app_2_wine_classifier](https://github.com/ChrisF03/Portfolio-Projects/tree/main/app_2_wine_classifier)|-Looked to predict Vinho Verde brand wine quality and type based on multiple physicochemical factors.<br><br>-Built and tuned 4 classification models using the Sci-Kit Learn library for each target variable and created an app using Streamlit for potential customers.|Jupyter Lab, Python, Pandas, NumPy, Sci-Kit Learn, Matplotlib, Seaborn,  Streamlit|https://wine-class.streamlit.app/|
