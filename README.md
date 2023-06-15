@@ -20,19 +20,21 @@
 |[Ad Sales Dashboard](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Sales%20Performance%20Dashboard.twbx)|-Created and deployed a dashboard tracking sales data for a marketing consultancy over a one year span.<br><br>-included total revenue, monthly revenue, best-performing consultants and teams as well as best selling ad-channels, etc.<br><br>-Deeper analysis is possible through created filters for month and sales team.|Excel, Tableau|Dashboard:<br>https://tinyurl.com/yhsx6tsb|
 |[Supply Chain Analysis](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Supply_Chain_Analysis.xlsx)|-Used MS Excel to analyze supply chain shipments and commodity pricing for HIV/AIDS medication from the U.S.<br><br>-Leveraged Pivot to gain insight into the dataset and put together visualizations for a dashboard.|Excel|N/A|
 -->
-<img align="right" height="270px" alt="GIF" src="https://media.tenor.com/lvLaG5hPCncAAAAd/data-analysis.gif" />
 
 # Independent Projects
-Below is a comprehensive list of every project I have completed, grouped by the main tool used.
-- Links in the initital Project column will lead to the project files on GitHub containing datasets, notebooks and/or code files.
-- Links in the last column will lead to any app or dashboard associated with said project.
+<img align="right" height="200px" alt="GIF" src="https://media1.giphy.com/media/JWuBH9rCO2uZuHBFpm/giphy.gif?cid=ecf05e47z5o5srr81kfkyqlgtkotlwxmmsyeqxlscv3rlub2&ep=v1_gifs_search&rid=giphy.gif&ct=g" />
 
+Below is a comprehensive list of every project I have completed, grouped by the main tool used.
+- Links in the initital Project column will lead to the project files on GitHub containing<br>datasets, notebooks and/or code files.
+- Links in the last column will lead to any app or dashboard associated with said project.
+<br><br><br>
 # Table Of Contents
 * [Python](https://github.com/ChrisF03/Portfolio-Projects/tree/main#python) 
 * [SQL](https://github.com/ChrisF03/Portfolio-Projects/tree/main#sql)
 * [Excel](https://github.com/ChrisF03/Portfolio-Projects/tree/main#excel) 
 * [Tableau](https://github.com/ChrisF03/Portfolio-Projects/tree/main#tableau)
-
+* [Full-Stack]()
+<!-- <br><br><br><br> -->
 # Python 
 |Project|Description|Tools Used|App Link|
 |-------|-----------|---------------|--------|
