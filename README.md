@@ -22,19 +22,19 @@
 -->
 
 # Independent Projects
-<img align="right" height="200px" alt="GIF" src="https://media1.giphy.com/media/JWuBH9rCO2uZuHBFpm/giphy.gif?cid=ecf05e47z5o5srr81kfkyqlgtkotlwxmmsyeqxlscv3rlub2&ep=v1_gifs_search&rid=giphy.gif&ct=g" />
+<img align="right" height="270px" alt="GIF" src="https://media1.giphy.com/media/JWuBH9rCO2uZuHBFpm/giphy.gif?cid=ecf05e47z5o5srr81kfkyqlgtkotlwxmmsyeqxlscv3rlub2&ep=v1_gifs_search&rid=giphy.gif&ct=g" />
 
-Below is a comprehensive list of every project I have completed, grouped by the main tool used.
-- Links in the initital Project column will lead to the project files on GitHub containing<br>datasets, notebooks and/or code files.
-- Links in the last column will lead to any app or dashboard associated with said project.
+Below is a comprehensive list of every project I have completed, grouped by the<br> main tool used.<br>
+- Links in the initital Project column will lead to the project files on GitHub<br> containing datasets, notebooks and/or code files.
+- Links in the last column will lead to any app or dashboard associated with<br> said project.
 <br><br><br>
 # Table Of Contents
 * [Python](https://github.com/ChrisF03/Portfolio-Projects/tree/main#python) 
 * [SQL](https://github.com/ChrisF03/Portfolio-Projects/tree/main#sql)
 * [Excel](https://github.com/ChrisF03/Portfolio-Projects/tree/main#excel) 
 * [Tableau](https://github.com/ChrisF03/Portfolio-Projects/tree/main#tableau)
-* [Full-Stack]()
-<!-- <br><br><br><br> -->
+<!-- * [Full-Stack]() -->
+
 # Python 
 |Project|Description|Tools Used|App Link|
 |-------|-----------|---------------|--------|
