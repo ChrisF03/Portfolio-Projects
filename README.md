@@ -25,10 +25,10 @@
 - Links in the initital Project column will lead to the project files on GitHub containing datasets, notebooks and/or code files.
 - Links in the last column will lead to any app or dashboard associated with said project.
 # Table Of Contents
-* [Python](https://github.com/ChrisF03/Portfolio-Projects/edit/main/README.md#python) 
-* [SQL](https://github.com/ChrisF03/Portfolio-Projects/edit/main/README.md#sql)
-* [Excel](https://github.com/ChrisF03/Portfolio-Projects/edit/main/README.md#excel) 
-* [Tableau](https://github.com/ChrisF03/Portfolio-Projects/edit/main/README.md#tableau)
+* [Python](https://github.com/ChrisF03/Portfolio-Projects/tree/main#python) 
+* [SQL](https://github.com/ChrisF03/Portfolio-Projects/tree/main#sql)
+* [Excel](https://github.com/ChrisF03/Portfolio-Projects/tree/main#excel) 
+* [Tableau](https://github.com/ChrisF03/Portfolio-Projects/tree/main#tableau)
 
 # Python 
 |Project|Description|Tools Used|App Link|
