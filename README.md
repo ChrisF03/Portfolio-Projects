@@ -22,11 +22,11 @@
 -->
 
 # Independent Projects
-<img align="right" height="270px" alt="GIF" src="https://media1.giphy.com/media/JWuBH9rCO2uZuHBFpm/giphy.gif?cid=ecf05e47z5o5srr81kfkyqlgtkotlwxmmsyeqxlscv3rlub2&ep=v1_gifs_search&rid=giphy.gif&ct=g" />
+<img align="right" height="200px" alt="GIF" src="https://media1.giphy.com/media/JWuBH9rCO2uZuHBFpm/giphy.gif?cid=ecf05e47z5o5srr81kfkyqlgtkotlwxmmsyeqxlscv3rlub2&ep=v1_gifs_search&rid=giphy.gif&ct=g" />
 
 Below is a comprehensive list of every project I have completed,<br> grouped by the main tool used.<br>
-- Links in the initital Project column will lead to the project files on GitHub<br> containing datasets, notebooks and/or code files.
-- Links in the last column will lead to any app or dashboard associated with<br> said project.
+- Links in the initital Project column will lead to the project files on GitHub containing datasets, notebooks and/or code files.
+- Links in the last column will lead to any app or dashboard associated with said project.
 <br><br><br>
 # Table Of Contents
 * [Python](https://github.com/ChrisF03/Portfolio-Projects/tree/main#python) 
