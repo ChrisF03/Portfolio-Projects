@@ -22,6 +22,7 @@
 -->
 
 # Independent Projects
+Below is a comprehensive list of every project I have completed, grouped by the main tool used.
 - Links in the initital Project column will lead to the project files on GitHub containing datasets, notebooks and/or code files.
 - Links in the last column will lead to any app or dashboard associated with said project.
 # Table Of Contents
