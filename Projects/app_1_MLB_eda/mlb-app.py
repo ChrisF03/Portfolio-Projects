@@ -8,9 +8,8 @@ from bs4 import BeautifulSoup
 from bs4 import Comment
 from PIL import Image
 import requests
-import plotly as py
-import plotly.graph_objects as go
-import plotly.express as px
+# import plotly.graph_objects as go
+# import plotly.express as px
 
 st.set_page_config(page_title='MLB Analysis', page_icon=':baseball:',layout="wide")
 
