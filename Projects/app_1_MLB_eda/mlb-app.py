@@ -8,11 +8,13 @@ from bs4 import BeautifulSoup
 from bs4 import Comment
 from PIL import Image
 import requests
-import datetime
+import plotly as py
+import plotly.graph_objects as go
+import plotly.express as px
 
 st.set_page_config(page_title='MLB Analysis', page_icon=':baseball:',layout="wide")
 
-image = Image.open(r"Projects/app_1_MLB_eda/mlb-logo.png")
+image = Image.open(r"Projects/app_1_MLB_eda/mlb-logo.png") #.open(r"Projects/app_1_MLB_eda/mlb-logo.png") on GitHub
 st.image(image, use_column_width=True)
 
 st.title('MLB Regular Season Stats Explorer')
@@ -26,61 +28,120 @@ st.header('Display Player Stats of Selected Team')
 tab1, tab2 = st.tabs(["Hitting", "Pitching"])
 
 st.sidebar.title('User Input Features')
-selected_year = st.sidebar.selectbox('Select Year', list(reversed(range(1998,2024))))
+selected_year = st.sidebar.selectbox('Select Year', list(reversed(range(1983,2024))))
 
 ################### Web scraping of MLB player stats ##########################
 # Hitting Stats #
 with tab1:
-    @st.cache_data
-    def hit_data(year):
-        url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-batting.shtml"
-        r = requests.get(url).text
-        stats_page = BeautifulSoup(r,'lxml')
-        comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
-        str1 = ''.join(comment)
-        test1 = BeautifulSoup(str1,'lxml')
-        data = pd.read_html(str(test1))
-        df = pd.DataFrame(data[0])
-        df.drop(['Rk','Pos\xa0Summary'],axis=1, inplace=True)
-        df.drop(df.tail(1).index,inplace=True)
-        df.drop_duplicates(keep=False,inplace=True)
-        col = (['Age','G','PA','AB','R','H','2B','3B','HR','RBI','SB','CS','BB','SO','BA','OBP','SLG','OPS','OPS+','TB','GDP','HBP','SH','SF','IBB'])
-        for x in col:
-            df[x] = pd.to_numeric(df[x])
-        df = df[df.Tm != 'TOT']
-        df['Name'] = df['Name'].apply(lambda x: str(x).replace(u'\xa0', u' '))
-        df['Name'] = df['Name'].map(lambda x: x.rstrip('*#'))
-        df = df.reset_index(drop=True)
-        hit_stats = df.set_index('Name')
-        return hit_stats
+    if selected_year == 2023 : 
+        def hit_data(current_year):
+            url = "https://www.baseball-reference.com/leagues/majors/2023-standard-batting.shtml"
+            r = requests.get(url).text
+            stats_page = BeautifulSoup(r,'lxml')
+            comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
+            str1 = ''.join(comment)
+            test1 = BeautifulSoup(str1,'lxml')
+            data = pd.read_html(str(test1))
+            df = pd.DataFrame(data[0])
+            df.drop(['Rk','Pos\xa0Summary'],axis=1, inplace=True)
+            df.drop(df.tail(1).index,inplace=True)
+            df.drop_duplicates(keep=False,inplace=True)
+            col = (['Age','G','PA','AB','R','H','2B','3B','HR','RBI','SB','CS','BB','SO','BA','OBP','SLG','OPS','OPS+','TB','GDP','HBP','SH','SF','IBB'])
+            for x in col:
+                df[x] = pd.to_numeric(df[x])
+            df = df[df.Tm != 'TOT']
+            df['Name'] = df['Name'].apply(lambda x: str(x).replace(u'\xa0', u' '))
+            df['Name'] = df['Name'].map(lambda x: x.rstrip('*#'))
+            df = df.reset_index(drop=True)
+            hit_stats = df.set_index('Name')
+            return hit_stats
+    else :
+        @st.cache_data
+        def hit_data(year):
+            url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-batting.shtml"
+            r = requests.get(url).text
+            stats_page = BeautifulSoup(r,'lxml')
+            comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
+            str1 = ''.join(comment)
+            test1 = BeautifulSoup(str1,'lxml')
+            data = pd.read_html(str(test1))
+            df = pd.DataFrame(data[0])
+            df.drop(['Rk','Pos\xa0Summary'],axis=1, inplace=True)
+            df.drop(df.tail(1).index,inplace=True)
+            df.drop_duplicates(keep=False,inplace=True)
+            col = (['Age','G','PA','AB','R','H','2B','3B','HR','RBI','SB','CS','BB','SO','BA','OBP','SLG','OPS','OPS+','TB','GDP','HBP','SH','SF','IBB'])
+            for x in col:
+                df[x] = pd.to_numeric(df[x])
+            df = df[df.Tm != 'TOT']
+            df['Name'] = df['Name'].apply(lambda x: str(x).replace(u'\xa0', u' '))
+            df['Name'] = df['Name'].map(lambda x: x.rstrip('*#'))
+            df = df.reset_index(drop=True)
+            hit_stats = df.set_index('Name')
+            return hit_stats
     hit_stats = hit_data(selected_year)
 
 # Pitching Stats #
 with tab2:
-    @st.cache_data
-    def pitch_data(year):
-        url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-pitching.shtml"
-        r = requests.get(url).text
-        stats_page = BeautifulSoup(r,'lxml')
-        comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
-        str1 = ''.join(comment)
-        test1 = BeautifulSoup(str1,'lxml')
-        data = pd.read_html(str(test1))
-        df = pd.DataFrame(data[0])
-        df.drop(['Rk'], axis=1, inplace=True)
-        df.drop(df.tail(1).index,inplace=True)
-        df.drop_duplicates(keep=False,inplace=True)
-        col = (['Age','W','L','W-L%','ERA','G','GS','GF','CG','SHO','SV','IP','H','R','ER','HR','BB','IBB','SO','HBP','BK','WP','BF','ERA+','FIP', 'WHIP','H9','HR9','BB9','SO9','SO/W'])
-        for x in col:
-            df[x] = pd.to_numeric(df[x])
-        df = df[df.Tm != 'TOT']
-        df['Name'] = df['Name'].apply(lambda x: str(x).replace(u'\xa0', u' '))
-        df['Name'] = df['Name'].map(lambda x: x.rstrip('*#'))
+    if selected_year == 2023 : 
+        def pitch_data(year):
+            url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-pitching.shtml"
+            r = requests.get(url).text
+            stats_page = BeautifulSoup(r,'lxml')
+            comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
+            str1 = ''.join(comment)
+            test1 = BeautifulSoup(str1,'lxml')
+            data = pd.read_html(str(test1))
+            df = pd.DataFrame(data[0])
+            df.drop(['Rk'], axis=1, inplace=True)
+            df.drop(df.tail(1).index,inplace=True)
+            df.drop_duplicates(keep=False,inplace=True)
+            col = (['Age','W','L','W-L%','ERA','G','GS','GF','CG','SHO','SV','IP','H','R','ER','HR','BB','IBB','SO','HBP','BK','WP','BF','ERA+','FIP', 'WHIP','H9','HR9','BB9','SO9','SO/W'])
+            for x in col:
+                df[x] = pd.to_numeric(df[x])
+            df = df[df.Tm != 'TOT']
+            df['Name'] = df['Name'].apply(lambda x: str(x).replace(u'\xa0', u' '))
+            df['Name'] = df['Name'].map(lambda x: x.rstrip('*#'))
+            #df = df.reset_index(drop=True)
+            pitch_stats = df.set_index('Name')
+            return pitch_stats
+    else :
+        @st.cache_data
+        def pitch_data(year):
+            url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-pitching.shtml"
+            r = requests.get(url).text
+            stats_page = BeautifulSoup(r,'lxml')
+            comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
+            str1 = ''.join(comment)
+            test1 = BeautifulSoup(str1,'lxml')
+            data = pd.read_html(str(test1))
+            df = pd.DataFrame(data[0])
+            df.drop(['Rk'], axis=1, inplace=True)
+            df.drop(df.tail(1).index,inplace=True)
+            df.drop_duplicates(keep=False,inplace=True)
+            col = (['Age','W','L','W-L%','ERA','G','GS','GF','CG','SHO','SV','IP','H','R','ER','HR','BB','IBB','SO','HBP','BK','WP','BF','ERA+','FIP', 'WHIP','H9','HR9','BB9','SO9','SO/W'])
+            for x in col:
+                df[x] = pd.to_numeric(df[x])
+            df = df[df.Tm != 'TOT']
+            df['Name'] = df['Name'].apply(lambda x: str(x).replace(u'\xa0', u' '))
+            df['Name'] = df['Name'].map(lambda x: x.rstrip('*#'))
         #df = df.reset_index(drop=True)
-        pitch_stats = df.set_index('Name')
-        return pitch_stats
+            pitch_stats = df.set_index('Name')
+            return pitch_stats
     pitch_stats = pitch_data(selected_year)
 
+# Team Logo Function # 
+# @st.cache_data
+# def get_team_logo(team_url):
+#     """
+#     Returns the team logo URL for a given team URL.
+#     """
+#     response = requests.get(team_url)
+#     soup = BeautifulSoup(response.text, 'html.parser')
+#     logo_element = soup.find('img', {'class': 'teamlogo'})
+#     if logo_element:
+#         return logo_element['src']
+#     else:
+#         return None
 
 #Sidebar - Team selection
 data = [hit_stats, pitch_stats]
@@ -89,6 +150,7 @@ mlb_df = pd.concat(data)
 unique_team = sorted(mlb_df.Tm.unique())
 
 selected_team = st.sidebar.selectbox('Select Team', [None] + unique_team)
+
 
 ################### data filter for each tab #####################
 # hitting tab #
@@ -126,6 +188,14 @@ with tab1:
         else :
             st.header('League Analysis, 'f'{(selected_year)}')
 
+    # Retrieve Selected Team Logo #
+    # if hit_selected_team is not None :
+    #     logo_url = get_team_logo(f'https://www.baseball-reference.com/teams/{hit_selected_team}/2022.shtml') 
+    #     response = requests.get(logo_url, stream=True)
+    #     img = Image.open(response.raw)
+        
+    #     st.image(img, caption=f'{hit_selected_team}')
+
         if selected_year == 2020:
             st.markdown('''
             * Due to the COVID-19 pandemic, a shortened season of just 60 games was played.
@@ -135,33 +205,20 @@ with tab1:
             ''')
         else:
             st.markdown('''
-            * Selecting 'None' for team will show ranking-qualified league leaders for each stat (min. 502 PA).
+            * Selecting 'None' for team will show ranking-qualified league leaders for each stat (min. 502).
             * Selecting a team will show up to the top 5 qualified players in that team for each category.
             * The correlation plot is in reference to the team and year selected. If team selection is 'None', correlation is league-wide.
             ''')
         hit_selected_team.to_csv('output.csv',index=False)
         df = pd.read_csv('output.csv')
 # averages among ranking-qualified hitters across the MLB # (min.502 PA, min. 186 PA for shortened 2020 Season)
-        if selected_year == 2023:
-            games_played = 47
-            current_time = datetime.datetime.now().time()
-            if current_time.hour == 1 and current_time.minute == 0:
-                games_played = min(games_played + 1, 162)
-            else:
-                games_played = min(games_played, 162)
-            qualifier = hit_stats[hit_stats['PA'] >= (games_played * 3.1)]
+        if selected_year == 2023 :
+            qualifier = hit_stats[hit_stats['PA']>=1]
             qualified = pd.DataFrame(qualifier.mean())
-            qualified.columns = ['League Average per Hitter']
-            team = hit_selected_team[hit_selected_team['PA'] >= (games_played * 3.1)]
+            qualified.columns=['League Average per Hitter']
+            team = hit_selected_team[hit_selected_team['PA']>=1]
             team_qualified = pd.DataFrame(team.mean())
-            team_qualified.columns = [f'{selected_team} Average per Hitter']
-#         if selected_year == 2023 :
-#             qualifier = hit_stats[hit_stats['PA']>=(47*3.1)]
-#             qualified = pd.DataFrame(qualifier.mean())
-#             qualified.columns=['League Average per Hitter']
-#             team = hit_selected_team[hit_selected_team['PA']>=(47*3.1)]
-#             team_qualified = pd.DataFrame(team.mean())
-#             team_qualified.columns=[''f'{selected_team} ' 'Average per Hitter']
+            team_qualified.columns=[''f'{selected_team} ' 'Average per Hitter']
         elif selected_year == 2020 :
             qualifier = hit_stats[hit_stats['PA']>=186]
             qualified = pd.DataFrame(qualifier.mean())
@@ -206,6 +263,14 @@ with tab1:
                 st.bar_chart(team['OPS+'].nlargest(5))
         with c2 :
             if selected_team is None :
+                # team_sorted = team.sort_values('H',ascending=False)
+                # top_hit = team_sorted.nlargest(10,'H')
+                # fig = px.bar(top_hit,x='H',y=top_hit.index,color='Tm',text='H')
+                # fig.update_layout(yaxis={'categoryorder':'array'})
+                # st.write(fig)
+                # team_sorted = team.nlargest(10,'H')
+                # fig = px.bar(team_sorted, x='H', y=team_sorted.index, color='Tm', orientation='h')
+                # st.write(fig)
                 st.bar_chart(team['H'].nlargest(10))
                 st.bar_chart(team['OBP'].nlargest(10))
                 st.bar_chart(team['BB'].nlargest(10))
@@ -225,7 +290,7 @@ with tab1:
 
         with c4:
             if selected_team is None :
-                st.bar_chart(team['R'].nlargest(10))
+                # st.bar_chart(team['R'].nlargest(10))
                 st.bar_chart(team['BA'].nlargest(10))
                 st.bar_chart(team['OPS'].nlargest(10))
             else :
@@ -276,25 +341,12 @@ with tab2:
         df = pd.read_csv('output.csv')
 # averages among ranking-qualified pitchers across the MLB # (min.162 IP)
         if selected_year == 2023 :
-            games_played = 47
-            current_time = datetime.datetime.now().time()
-            if current_time.hour == 1 and current_time.minute == 0 :
-                games_played = min(games_played + 1, 162)
-            else:
-                games_played = min(games_played, 162)
-            p_qualifier = pitch_stats[pitch_stats['IP']>=games_played]
+            p_qualifier = pitch_stats[pitch_stats['GS']>=1]
             p_qualified = pd.DataFrame(p_qualifier.mean())
             p_qualified.columns=['League Average per Pitcher']
-            p_team = pitch_selected_team[pitch_selected_team['IP']>=games_played]
+            p_team = pitch_selected_team[pitch_selected_team['GS']>=1]
             p_team_qualified = pd.DataFrame(p_team.mean())
             p_team_qualified.columns=[''f'{selected_team} ' 'Average per Pitcher']
-#         if selected_year == 2023 :
-#             p_qualifier = pitch_stats[pitch_stats['IP']>=47]
-#             p_qualified = pd.DataFrame(p_qualifier.mean())
-#             p_qualified.columns=['League Average per Pitcher']
-#             p_team = pitch_selected_team[pitch_selected_team['IP']>=47]
-#             p_team_qualified = pd.DataFrame(p_team.mean())
-#             p_team_qualified.columns=[''f'{selected_team} ' 'Average per Pitcher']
         elif selected_year == 2020 :
             p_qualifier = pitch_stats[pitch_stats['IP']>=60]
             p_qualified = pd.DataFrame(p_qualifier.mean())
