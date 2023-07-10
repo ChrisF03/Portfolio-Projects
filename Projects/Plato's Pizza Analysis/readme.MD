@@ -5,3 +5,6 @@ Dashboard Link : [Tableau]()
 
 ![Canva](https://www.canva.com/design/DAFoRgXUtYs/view)
 
+<p>align="center"
+<img src="https://www.canva.com/design/DAFoRgXUtYs/view">
+</p>
