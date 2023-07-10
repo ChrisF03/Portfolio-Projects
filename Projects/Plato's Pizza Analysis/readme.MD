@@ -3,5 +3,5 @@
 
 Dashboard Link : [Tableau]()
 
-https://www.canva.com/design/DAFoRgXUtYs/view
+![Canva](https://www.canva.com/design/DAFoRgXUtYs/view)
 
