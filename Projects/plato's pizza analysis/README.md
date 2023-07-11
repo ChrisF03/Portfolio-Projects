@@ -5,7 +5,7 @@ Dashboard Link : [Coming Soon](https://public.tableau.com/app/profile/chrisf03)
 
 For this project, I took on the role of a data analyst for Plato's Pizzeria, a Greek-inspired pizza place in New Jersey.
 <br><br>
-Plato's has been collecting [transactional data](https://mavenanalytics.io/challenges/maven-pizza-challenge/4) for the past year, but really haven't been able to put it to good use. <br><br>Tasked with analyzing the data and putting together a report to help them find opportunities to drive more sales and work more efficiently, here are some questions that I came up with and answered using SQL : 
+Plato's has been collecting [transactional data](https://mavenanalytics.io/challenges/maven-pizza-challenge/4) for the past year, but really haven't been able to put it to good use. <br><br>Tasked with analyzing the data and putting together a report to help them find opportunities to drive more sales and work more efficiently, here are some questions that I answered using SQL : 
 
 <b> 1) How many customers did we have each day? </b> 
 ```sql
