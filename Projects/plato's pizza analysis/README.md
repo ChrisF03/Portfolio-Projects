@@ -1,4 +1,4 @@
-![banner](https://github.com/ChrisF03/Portfolio-Projects/assets/103148784/f8038185-0290-484f-8459-f4010cecd73d)
+![banner](https://github.com/ChrisF03/Portfolio-Projects/assets/103148784/444d5a6e-a87e-4389-b074-d930bc8112ec)
 # Plato's Pizzeria Sales Analysis
 ### *Tools Used: Excel, SQL, Tableau*
 
