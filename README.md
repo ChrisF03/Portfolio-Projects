@@ -27,7 +27,7 @@
 Below is a comprehensive list of every project I have completed,<br> grouped by the main tool used.<br>
 - Links in the initital Project column will lead to the project files on GitHub containing datasets, notebooks and/or code files.<br><br>
 - Links in the last column will lead to any app or dashboard associated with said project.<br><br>
-- The full-stack section contains projects that were done using some combination of tools
+- The full-stack section contains projects that were done using some combination of the tools listed before it.
 <br><br><br>
 # Table Of Contents
 * [Excel](https://github.com/ChrisF03/Portfolio-Projects/tree/main#excel) 
