@@ -26,14 +26,28 @@
 
 Below is a comprehensive list of every project I have completed,<br> grouped by the main tool used.<br>
 - Links in the initital Project column will lead to the project files on GitHub containing datasets, notebooks and/or code files.<br><br>
-- Links in the last column will lead to any app or dashboard associated with said project.
+- Links in the last column will lead to any app or dashboard associated with said project.<br><br>
+- The full-stack section contains projects that were done using some combination of tools
 <br><br><br>
 # Table Of Contents
-* [Python](https://github.com/ChrisF03/Portfolio-Projects/tree/main#python) 
-* [SQL](https://github.com/ChrisF03/Portfolio-Projects/tree/main#sql)
 * [Excel](https://github.com/ChrisF03/Portfolio-Projects/tree/main#excel) 
+* [SQL](https://github.com/ChrisF03/Portfolio-Projects/tree/main#sql)
+* [Python](https://github.com/ChrisF03/Portfolio-Projects/tree/main#python) 
 * [Tableau](https://github.com/ChrisF03/Portfolio-Projects/tree/main#tableau)
-<!-- * [Full-Stack]() -->
+* [Full-Stack](https://github.com/ChrisF03/Portfolio-Projects/tree/main#full-stack) 
+
+# Excel
+|Project|Description|
+|-------|-----------|
+|[Supply Chain Analysis](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/Supply_Chain_Analysis.xlsx)|-Used MS Excel to analyze supply chain shipments and commodity pricing for HIV/AIDS medication from the U.S.<br><br>-Leveraged Pivot to gain insight into the dataset and put together visualizations for a dashboard.|
+|[Bike Buyer Analysis](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/Bike%20Buyer%20Dataset.xlsx)|-Used Excel to analyze data on a bike shops customers. The dataset includes 11 features including age, occupation, income, and marital status, among the rest.<br><br>-Removed duplicate values.<br>-Utilized nested IF statements to group the Age column into a seperate Age Bracket column.<br>-Created Pivot tables to aid in data visualization.<br>-Leveraged pivot tables into a dashboard and add slicers to filter visualizations.|
+
+# SQL
+|Project|Description|
+|-------|-----------|
+|[Media Store SQL Analysis](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/MediaStoreAnalysis.sql)|-Curated a list of SQL queries analyzing invoices for a fictional media store. The database contained multiple tables containing information on customers, employees and products.<br><br>-Mainly focused on aggregate functions and joins to conduct analysis.|
+|[COVID-19 SQL Analysis](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/COVID.sql)|-A list of SQL queries analyzing COVID deaths and vaccinations by country and by continent using aggregate functions. Also includes window functions, CTE's, Temp Tables, and Views.<br><br>-This data contained two tables one for deaths and one for vaccinations. CTE's, Temp Tables, and Views were also used.|
+|[MoMA SQL Analysis](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/MoMA%20SQL%20analysis.sql)|-A list of SQL queries analyzing the collection of Museum of Modern Arts in New York City using aggregate functions.<br><br>-This data contained two tables, one containing information on artworks including medium and classification and another containing information on artists such as nationality and number of works.|
 
 # Python 
 |Project|Description|Libraries Used|App Link|
@@ -45,19 +59,6 @@ Below is a comprehensive list of every project I have completed,<br> grouped by 
 |[Heart Disease Risk Detection](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/heart%20disease%20risk%20nb/HeartAttackClassification.ipynb)|-Aimed to predict likelihood of heart disease in patients based on a number of cardiovascular metrics.<br><br>-Built and tuned 4 different classification models using the sklearn library to achieve outcome.|Jupyter Lab, Python, Pandas, NumPy, Sci-Kit Learn, Matplotlib, Seaborn, Plotly| N/A |
 |[Telco Customer Churn](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/telco%20churn%20nb/Telco_Churn.ipynb)|-Analyzed customer churn data for a telephone and internet service company containing 20 different features.<br><br>-Built and tuned 5 different classification models using the sklearn library to predict likelihood of customer churn as well as which factors were causing it.|Jupyter Lab, Python, Pandas, NumPy, Sci-Kit Learn, Matplotlib, Seaborn|N/A|
 
-# SQL
-|Project|Description|
-|-------|-----------|
-|[Media Store SQL Analysis](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/MediaStoreAnalysis.sql)|-Curated a list of SQL queries analyzing invoices for a fictional media store. The database contained multiple tables containing information on customers, employees and products.<br><br>-Mainly focused on aggregate functions and joins to conduct analysis.|
-|[COVID-19 SQL Analysis](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/COVID.sql)|-A list of SQL queries analyzing COVID deaths and vaccinations by country and by continent using aggregate functions. Also includes window functions, CTE's, Temp Tables, and Views.<br><br>-This data contained two tables one for deaths and one for vaccinations. CTE's, Temp Tables, and Views were also used.|
-|[MoMA SQL Analysis](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/MoMA%20SQL%20analysis.sql)|-A list of SQL queries analyzing the collection of Museum of Modern Arts in New York City using aggregate functions.<br><br>-This data contained two tables, one containing information on artworks including medium and classification and another containing information on artists such as nationality and number of works.|
-
-# Excel
-|Project|Description|
-|-------|-----------|
-|[Supply Chain Analysis](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/Supply_Chain_Analysis.xlsx)|-Used MS Excel to analyze supply chain shipments and commodity pricing for HIV/AIDS medication from the U.S.<br><br>-Leveraged Pivot to gain insight into the dataset and put together visualizations for a dashboard.|
-|[Bike Buyer Analysis](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/Bike%20Buyer%20Dataset.xlsx)|-Used Excel to analyze data on a bike shops customers. The dataset includes 11 features including age, occupation, income, and marital status, among the rest.<br><br>-Removed duplicate values.<br>-Utilized nested IF statements to group the Age column into a seperate Age Bracket column.<br>-Created Pivot tables to aid in data visualization.<br>-Leveraged pivot tables into a dashboard and add slicers to filter visualizations.|
-
 # Tableau 
 |Project|Description|App Link|
 |-------|-----------|--------|
@@ -65,5 +66,10 @@ Below is a comprehensive list of every project I have completed,<br> grouped by 
 |[Ad Sales Dashboard](https://public.tableau.com/app/profile/chrisf03/viz/SalesDashboard_16781688272840/SalesDashboard)|-Created and deployed a dashboard tracking sales data for a marketing consultancy over a one year span.<br><br>-included total revenue, monthly revenue, best-performing consultants and teams as well as best selling ad-channels, etc.<br><br>-Deeper analysis is possible through created filters for month and sales team.|Dashboard:<br>https://tinyurl.com/yhsx6tsb|
 |[COVID-19 Vaccination Tracker](https://public.tableau.com/app/profile/christian.fernandez3862/viz/COVID-19VaccinationTracker_16748117195790/COVIDVaccinationTracker)|-Created a dashboard tracking partial (1) and full (2) vaccinations around the world as of 1/26/2023.<br><br>-Added filters for continent, country, and date range.<br>-Utilized world map to visualize vaccinations per hundred for every country.<br><br>-Also visualized GDP per Capita and Vaccinations per Hundred|Dashboard:<br> https://tinyurl.com/bdhr5ux2|
 |[A.I Index Dashboard](https://public.tableau.com/app/profile/chrisf03/viz/A_IIndexDashboard/A_IIndexDashboard)|-Deployed a dashboard measuring the rapid rate of A.I advancement including research and development, investment, and A.I policy.<br><br>-Utilized bar charts to show total A.I investments by country and focus area of investments.<br><br>-Showed patent filings, total A.I publications, including publications by field.<br><br>-Visualized corporate adoption of A.I and a section on A.I policy which includes mentions in legislative proceedings and A.I related bills actually passed, broken down by country.|Dashboard:<br>https://tinyurl.com/2sxw8dn6|
+
+# Full-Stack
+|Project|Description|Tools Used|App Link|
+|-------|-----------|----------|--------|
+|[Plato's Pizzeria Sales Analysis](https://github.com/ChrisF03/Portfolio-Projects/tree/main/Projects/plato's%20pizza%20analysis)|For this project, I took on the role of a data analyst for Plato's Pizzeria, a Greek-inspired pizza place in New Jersey.<br><br> Plato's has been collecting transactional data for the past year, but really haven't been able to put it to good use.<br><br> Tasked with analyzing the data and putting together a dashboard to help them find opportunities to drive more sales and work more efficiently.|SQL, Tableau|Dashboard in Progress ...|
 
 ## [RETURN TO TOP ↑](https://github.com/ChrisF03/Portfolio-Projects/tree/main#table-of-contents)
