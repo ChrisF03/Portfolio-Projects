@@ -70,6 +70,6 @@ Below is a comprehensive list of every project I have completed,<br> grouped by 
 # Full-Stack
 |Project|Description|Tools Used|App Link|
 |-------|-----------|----------|--------|
-|[Plato's Pizzeria Sales Analysis](https://github.com/ChrisF03/Portfolio-Projects/tree/main/Projects/plato's%20pizza%20analysis)|For this project, I took on the role of a data analyst for Plato's Pizzeria, a Greek-inspired pizza place in New Jersey.<br><br> Plato's has been collecting transactional data for the past year, but really haven't been able to put it to good use.<br><br> Tasked with analyzing the data and putting together a dashboard to help them find opportunities to drive more sales and work more efficiently.|SQL, Tableau|Dashboard in Progress ...|
+|[Plato's Pizzeria Sales Analysis](https://github.com/ChrisF03/Portfolio-Projects/tree/main/Projects/plato's%20pizza%20analysis)|For this project, I took on the role of a data analyst for Plato's Pizzeria, a Greek-inspired pizza place in New Jersey.<br><br> Plato's has been collecting transactional data for the past year, but really haven't been able to put it to good use.<br><br> Tasked with analyzing the data and putting together a dashboard to help them find opportunities to drive more sales and work more efficiently.|SQL, Tableau|[Tableau](https://public.tableau.com/app/profile/chrisf03/viz/PlatosPizzeriaSalesReport/Dashboard12)|
 
 ## [RETURN TO TOP ↑](https://github.com/ChrisF03/Portfolio-Projects/tree/main#table-of-contents)
