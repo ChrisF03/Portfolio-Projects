@@ -68,7 +68,7 @@ Below is a comprehensive list of every project I have completed,<br> grouped by 
 |[A.I Index Dashboard](https://public.tableau.com/app/profile/chrisf03/viz/A_IIndexDashboard/A_IIndexDashboard)|-Deployed a dashboard measuring the rapid rate of A.I advancement including research and development, investment, and A.I policy.<br><br>-Utilized bar charts to show total A.I investments by country and focus area of investments.<br><br>-Showed patent filings, total A.I publications, including publications by field.<br><br>-Visualized corporate adoption of A.I and a section on A.I policy which includes mentions in legislative proceedings and A.I related bills actually passed, broken down by country.|Dashboard:<br>https://tinyurl.com/2sxw8dn6|
 
 # Full-Stack
-|Project|Description|Tools Used|App Link|
+|Project|Description|Tools Used|Links|
 |-------|-----------|----------|--------|
 |[Plato's Pizzeria Sales Analysis](https://github.com/ChrisF03/Portfolio-Projects/tree/main/Projects/plato's%20pizza%20analysis)|For this project, I took on the role of a data analyst for Plato's Pizzeria, a Greek-inspired pizza place in New Jersey.<br><br> Plato's has been collecting transactional data for the past year, but really haven't been able to put it to good use.<br><br> Tasked with analyzing the data and putting together a dashboard to help them find opportunities to drive more sales and work more efficiently.|SQL, Tableau|[Tableau](https://public.tableau.com/app/profile/chrisf03/viz/PlatosPizzeriaSalesReport/Dashboard12)|
 
