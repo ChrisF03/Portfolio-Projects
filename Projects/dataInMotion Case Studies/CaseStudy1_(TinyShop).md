@@ -1,20 +1,21 @@
---**Query #1**
---1) Which product has the highest price? Only return a single row.
-  
+--**Query #1**<br><br>
+Which product has the highest price? Only return a single row.
+  ```sql
     SELECT product_name, 
     	   price
     FROM Products
     ORDER BY price DESC
     LIMIT 1;
+```
 
 | product_name | price |
 | ------------ | ----- |
 | Product M    | 70.00 |
 
 --------------------------------------------------------------------------------------------
---**Query #2**
---2) Which customer has made the most orders?
-  
+--**Query #2**<br><br>
+Which customer has made the most orders?
+```sql 
     SELECT CONCAT(customers.first_name,' ',customers.last_name) as Name, 
     	   COUNT(DISTINCT orders.order_id) as Total_Orders
     FROM Customers
@@ -23,15 +24,16 @@
     GROUP BY customers.customer_id 
     ORDER BY Total_orders DESC
     LIMIT 1;
+```
 
 | name     | total_orders |
 | -------- | ------------ |
 | John Doe | 2            |
 
 --------------------------------------------------------------------------------------------
---**Query #3**
---3) What’s the total revenue per product?
-  
+--**Query #3**<br><br>
+What’s the total revenue per product?
+```sql  
     SELECT products.product_name,
     	   (products.price * SUM(order_items.quantity)) as Revenue
     FROM Products
@@ -40,7 +42,7 @@
     GROUP BY products.product_id
     ORDER BY Revenue DESC
     LIMIT 3;
-
+```
 | product_name | revenue |
 | ------------ | ------- |
 | Product M    | 420.00  |
@@ -48,9 +50,9 @@
 | Product F    | 210.00  |
 
 --------------------------------------------------------------------------------------------
---**Query #4**
---4) Find the day with the highest revenue.
-
+--**Query #4**<br><br>
+Find the day with the highest revenue.
+```sql
     SELECT orders.order_date, 
     	   SUM(products.price * order_items.quantity) as Revenue
     FROM Orders
@@ -61,20 +63,20 @@
     GROUP BY orders.order_date
     ORDER BY Revenue DESC
     LIMIT 1;
-
+```
 | order_date               | revenue |
 | ------------------------ | ------- |
 | 2023-05-16T00:00:00.000Z | 340.00  |
 
 --------------------------------------------------------------------------------------------
---**Query #5**
---5) Find the first order (by date) for each customer.
-  
+--**Query #5**<br><br>
+Find the first order (by date) for each customer.
+```sql  
     SELECT customer_id, MIN(order_date) as First_Order
     FROM orders
     GROUP BY customer_id
     ORDER BY Customer_id;
-
+```
 | customer_id | first_order              |
 | ----------- | ------------------------ |
 | 1           | 2023-05-01T00:00:00.000Z |
@@ -92,10 +94,11 @@
 | 13          | 2023-05-16T00:00:00.000Z |
 
 --------------------------------------------------------------------------------------------
---**Query #6**
---6) Find the top 3 customers who have ordered the most distinct products
-  
-    SELECT CONCAT(customers.first_name,' ',customers.last_name) as Name, 	    COUNT(DISTINCT order_items.product_id) as Items_Bought
+--**Query #6** <br><br>
+Find the top 3 customers who have ordered the most distinct products
+```sql  
+    SELECT CONCAT(customers.first_name,' ',customers.last_name) as Name,
+           COUNT(DISTINCT order_items.product_id) as Items_Bought
     FROM customers
     JOIN orders ON 
     customers.customer_id = orders.customer_id
@@ -104,7 +107,7 @@
     GROUP BY customers.customer_id
     ORDER BY Items_Bought DESC
     LIMIT 3;
-
+```
 | name        | items_bought |
 | ----------- | ------------ |
 | Jane Smith  | 3            |
@@ -112,9 +115,9 @@
 | John Doe    | 3            |
 
 --------------------------------------------------------------------------------------------
---**Query #7**
---7) Which product has been bought the least in terms of quantity?
-  
+--**Query #7** <br><br>
+Which product has been bought the least in terms of quantity?
+```sql  
     SELECT products.product_name, SUM(order_items.quantity) as Quantity
     FROM products
     JOIN order_items ON 
@@ -122,7 +125,7 @@
     GROUP BY products.product_name, Quantity
     ORDER BY Quantity ASC
     LIMIT 3;
-
+```
 | product_name | quantity |
 | ------------ | -------- |
 | Product I    | 1        |
@@ -130,9 +133,9 @@
 | Product G    | 1        |
 
 --------------------------------------------------------------------------------------------
---**Query #8**
---8) What is the median order total?
-  
+--**Query #8** <br><br>
+What is the median order total?
+```sql  
     WITH order_totals AS (
     SELECT order_items.order_id, SUM(products.price * order_items.quantity) AS Total
     FROM order_items 
@@ -143,15 +146,15 @@
     )
     SELECT PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY total)
     FROM order_totals;
-
+```
 | percentile_cont |
 | --------------- |
 | 112.5           |
 
 --------------------------------------------------------------------------------------------
---**Query #9**
---9) For each order, determine if it was ‘Expensive’ (total over 300), ‘Affordable’ (total over 100), or ‘Cheap’.
-  
+--**Query #9** <br><br>
+For each order, determine if it was ‘Expensive’ (total over 300), ‘Affordable’ (total over 100), or ‘Cheap’.
+```sql  
     WITH order_totals AS (
     SELECT order_items.order_id, SUM(products.price * order_items.quantity) AS Total
     FROM order_items 
@@ -165,7 +168,7 @@
         WHEN Total > 100 THEN 'Cheap'
         ELSE 'Cheap' END AS order_type
     FROM order_totals;
-
+```
 | order_id | order_type |
 | -------- | ---------- |
 | 1        | Cheap      |
@@ -186,9 +189,9 @@
 | 16       | Expensive  |
 
 --------------------------------------------------------------------------------------------
---**Query #10**
---10) Find customers who have ordered the product with the highest price.
-  
+--**Query #10** <br><br>
+Find customers who have ordered the product with the highest price.
+```sql  
     WITH customer AS (
     SELECT CONCAT(customers.first_name,' ',customers.last_name) as Name,
     	   orders.order_id
@@ -214,7 +217,7 @@
     customer.order_id = prices.order_id
     WHERE price = (
       SELECT MAX(price) FROM prices);
-
+```
 | name          | price |
 | ------------- | ----- |
 | Ivy Jones     | 70.00 |
@@ -222,4 +225,4 @@
 
 --------------------------------------------------------------------------------------------
 
---[View on DB Fiddle](https://www.db-fiddle.com/f/5NT4w4rBa1cvFayg2CxUjr/224)
+-[View on DB Fiddle](https://www.db-fiddle.com/f/5NT4w4rBa1cvFayg2CxUjr/224)
