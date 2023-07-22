@@ -39,7 +39,7 @@ Below is a comprehensive list of every project I have completed,<br> grouped by 
 # Excel
 |Project|Description|
 |-------|-----------|
-|[Supply Chain Analysis](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/Supply_Chain_Analysis.xlsx)|-Used MS Excel to analyze supply chain shipments and commodity pricing for HIV/AIDS medication from the U.S.<br><br>-Leveraged Pivot to gain insight into the dataset and put together visualizations for a dashboard.|
+|[Supply Chain Analysis](https://github.com/ChrisF03/Portfolio-Projects/tree/main/Projects/supply%20chain%20analysis%20(Excel))|-Used MS Excel to analyze supply chain shipments and commodity pricing for HIV/AIDS medication from the U.S.<br><br>-Leveraged Pivot to gain insight into the dataset and put together visualizations for a dashboard.|
 |[Bike Buyer Analysis](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/Bike%20Buyer%20Dataset.xlsx)|-Used Excel to analyze data on a bike shops customers. The dataset includes 11 features including age, occupation, income, and marital status, among the rest.<br><br>-Removed duplicate values.<br>-Utilized nested IF statements to group the Age column into a seperate Age Bracket column.<br>-Created Pivot tables to aid in data visualization.<br>-Leveraged pivot tables into a dashboard and add slicers to filter visualizations.|
 
 # SQL
