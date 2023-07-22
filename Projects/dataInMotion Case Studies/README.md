@@ -6,7 +6,7 @@
 - Click on the case study titles to see queries and outputs.
 
 
-## CASE STUDY #1 : [Tiny Shop Sales]()
+## CASE STUDY #1 : [Tiny Shop Sales](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/dataInMotion%20Case%20Studies/CaseStudy1_(TinyShop).md)
 - This case study allows us to query a PostgreSQL database for customer order analysis of a tiny shop.<br><br>
 - Aggregate functions, JOINS, and CTE's were used throughout the analysis.
 
