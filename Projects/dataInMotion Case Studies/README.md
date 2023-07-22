@@ -10,7 +10,7 @@
 - This case study allows us to query a PostgreSQL database for customer order analysis of a tiny shop.<br><br>
 - Aggregate functions, JOINS, and CTE's were used throughout the analysis.
 
-Questions Answered :
+**Questions Answered :**
 1. Which product has the highest price? Only return a single row.
 2. Which customer has made the most orders?
 3. What’s the total revenue per product?
