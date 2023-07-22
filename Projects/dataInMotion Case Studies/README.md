@@ -1,4 +1,4 @@
-<img align="right" width="250" height="250" src="https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/dataInMotion%20Case%20Studies/DIM22-removebg-preview.png">
+<a href="https://d-i-motion.com/"> <img align="right" width="250" height="250" src="https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/dataInMotion%20Case%20Studies/DIM22-removebg-preview.png"></a>
 
 # Data-In-Motion SQL Case Studies
 - These SQL case studies are free case studies designed by [DataInMotion](https://d-i-motion.com/) to help data analysts practice and hone their skills by simulating real-world business problems and challenging participants to query for solutions. Below I will post my solutions to each case study as I solve them.
