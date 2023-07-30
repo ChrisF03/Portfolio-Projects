@@ -22,7 +22,7 @@
 9. For each order, determine if it was ‘Expensive’ (total over 300), ‘Affordable’ (total over 100), or ‘Cheap’.
 10. Find customers who have ordered the product with the highest price.
 
-## CASE STUDY #2 : [Human Resources Analysis]()
+## CASE STUDY #2 : [Human Resources Analysis](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/dataInMotion%20Case%20Studies/CaseStudy2_(HumanResources).md)
 - This case study allows us to query a PostgreSQL database as an analyst for Human Reosurces department.<br><br>
 - Aggregate functions, filter functions, self JOINS, and the RANK() window function were used throughout the analysis.
 
