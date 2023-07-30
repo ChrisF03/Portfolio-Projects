@@ -8,7 +8,7 @@
 
 ## CASE STUDY #1 : [Tiny Shop Sales](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/dataInMotion%20Case%20Studies/CaseStudy1_(TinyShop).md)
 - This case study allows us to query a PostgreSQL database for customer order analysis of a tiny shop.<br><br>
-- Aggregate functions, JOINS, and CTE's were used throughout the analysis.
+- Aggregate functions, filter function, JOINS, and CTE's were used throughout the analysis.
 
 **Questions Answered :**
 1. Which product has the highest price? Only return a single row.
@@ -22,5 +22,13 @@
 9. For each order, determine if it was ‘Expensive’ (total over 300), ‘Affordable’ (total over 100), or ‘Cheap’.
 10. Find customers who have ordered the product with the highest price.
 
-<!-- ## CASE STUDY #2 : [Human Resources Analysis]()
-- This case study allows us to query a PostgreSQL database for customer order analysis of a tiny shop.<br><br> -->
+## CASE STUDY #2 : [Human Resources Analysis]()
+- This case study allows us to query a PostgreSQL database as an analyst for Human Reosurces department.<br><br>
+- Aggregate functions, filter functions, self JOINS, and the RANK() window function were used throughout the analysis.
+
+**Questions Answered :**
+1. Find the longest ongoing project for each department.
+2. Find all employees who are not managers.
+3. Find all employees who have been hired after the start of a project in their department.
+4. Rank employees within each department based on their hire date (earliest hire gets the highest rank).
+5. Find the duration between the hire date of each employee and the hire date of the next employee hired in the same department.
