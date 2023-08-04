@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+import shap
 from sklearn import preprocessing
 from sklearn.ensemble import RandomForestRegressor
 import matplotlib.pyplot as plt
