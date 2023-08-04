@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import shap 
+# import shap 
 from sklearn import preprocessing
 from sklearn.ensemble import RandomForestRegressor
 import matplotlib.pyplot as plt
@@ -88,14 +88,14 @@ st.write('---')
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-explainer = shap.TreeExplainer(rfr)
-shap_values = explainer.shap_values(X)
+# explainer = shap.TreeExplainer(rfr)
+# shap_values = explainer.shap_values(X)
 
-st.header('Feature Importance')
-plt.title('Feature importance based on SHAP values')
-shap.summary_plot(shap_values, X)
-st.pyplot()
+# st.header('Feature Importance')
+# plt.title('Feature importance based on SHAP values')
+# shap.summary_plot(shap_values, X)
+# st.pyplot()
 
-plt.title('Feature importance based on SHAP values (Bar)')
-shap.summary_plot(shap_values, X, plot_type="bar")
-st.pyplot()
+# plt.title('Feature importance based on SHAP values (Bar)')
+# shap.summary_plot(shap_values, X, plot_type="bar")
+# st.pyplot()
