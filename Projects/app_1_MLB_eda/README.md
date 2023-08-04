@@ -2,6 +2,7 @@
 ### *Tools Used: Python, Pandas, NumPy, Requests, BeautifulSoup, Streamlit*
 
 App Link : [Streamlit](https://mlb-eda.streamlit.app/)
+Source Code : [Python](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/app_1_MLB_eda/mlb-app.py)
 
 • Scraped and analyzed statistical data for every Major League Baseball player in each season since 1998. <br>
 • Utilized BeautifulSoup to scrape data from HTML comments and Pandas to manipulate the data
