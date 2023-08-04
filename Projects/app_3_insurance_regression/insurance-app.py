@@ -10,7 +10,7 @@ from PIL import Image
 
 st.set_page_config(page_title='Insurance Cost Estimator', page_icon=':hospital:',layout="wide")
 
-image = Image.open(r'app_3_insurance_regression/insurance_cover.png')
+image = Image.open(r'Projects/app_3_insurance_regression/insurance_cover.png')
 st.image(image, use_column_width=True) 
 
 st.title('Medical Insurance Regression')
