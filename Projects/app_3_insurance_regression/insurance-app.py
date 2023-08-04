@@ -27,7 +27,7 @@ The dataset used to train the ML model for this app was inspired by the book *Ma
 st.write('---')
 #############################################################################
 # Uploading our Dataset
-dataset = pd.read_csv(r'app_3_insurance_regression/InsuranceDataset.csv')
+dataset = pd.read_csv(r'Projects/app_3_insurance_regression/InsuranceDataset.csv')
 #############################################################################
 # Creating our sidebar menu and displaying user inputs
 st.sidebar.header('Specify Input Parameters')
