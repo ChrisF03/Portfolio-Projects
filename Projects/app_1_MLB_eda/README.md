@@ -1,7 +1,7 @@
 # Baseball-Reference Scraper
 ### *Tools Used: Python, Pandas, NumPy, Requests, BeautifulSoup, Streamlit*
 
-App Link : [Streamlit](https://mlb-eda.streamlit.app/)
+App Link : [Streamlit](https://mlb-eda.streamlit.app/) <br>
 Source Code : [Python](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/app_1_MLB_eda/mlb-app.py)
 
 • Scraped and analyzed statistical data for every Major League Baseball player in each season since 1998. <br>
