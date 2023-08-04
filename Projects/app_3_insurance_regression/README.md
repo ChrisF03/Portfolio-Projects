@@ -1,7 +1,7 @@
 # Medical Insurance Cost Estimator
 ### *Tools Used: Jupyter Lab, Python, Pandas, NumPy, Sci‑Kit Learn, Matplotlib, Seaborn, Streamlit*
 
-App Link : [Streamlit](https://insurance-estimator.streamlit.app/)
+App Link : [Streamlit](https://insurance-estimator.streamlit.app/) <br>
 Notebook Link : [Jupyter](https://github.com/ChrisF03/Portfolio-Projects/blob/main/Projects/app_3_insurance_regression/Insurance_Regression.ipynb)
 
 • Predicted medical insurance costs for patients in the U.S based on 6 factors.<br>
