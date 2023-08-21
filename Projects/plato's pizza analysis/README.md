@@ -1,8 +1,7 @@
 ![banner](https://github.com/ChrisF03/Portfolio-Projects/assets/103148784/444d5a6e-a87e-4389-b074-d930bc8112ec)
 # Plato's Pizzeria Sales Analysis
 ### *Tools Used: Excel, SQL, Tableau*
-
-[CLICK HERE TO SEE DASHBOARD](https://github.com/ChrisF03/Portfolio-Projects/tree/main/Projects/plato's%20pizza%20analysis#dashboard-)
+#### <ins>SCROLL DOWN TO SEE DASHBOARD</ins> ####
 
 For this project, I took on the role of a data analyst for Plato's Pizzeria, a Greek-inspired pizza place in New Jersey.
 <br><br>
