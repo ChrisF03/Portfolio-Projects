@@ -1,4 +1,5 @@
 --**Query #1**<br><br>
+Find the longest ongoing project for each department.
 ```sql
     SELECT name, 
     	   AGE(end_date,start_date) as Duration
@@ -14,6 +15,7 @@
 
 --------------------------------------------------------------------------------------------
 --**Query #2**<br><br>
+Find all employees who are not managers.
 ```sql
     SELECT name, 
     	   job_title
@@ -29,6 +31,7 @@
 
 --------------------------------------------------------------------------------------------
 --**Query #3**<br><br>
+Find all employees who have been hired after the start of a project in their department.
 ```sql
     SELECT employees.name, 
     	   employees.hire_date
@@ -44,6 +47,7 @@
 
 --------------------------------------------------------------------------------------------
 --**Query #4**<br><br>
+Rank employees within each department based on their hire date (earliest hire gets the highest rank).
 ```sql
     SELECT name, 
     	   department_id,
@@ -63,6 +67,7 @@
 
 --------------------------------------------------------------------------------------------
 --**Query #5**<br><br>
+Find the duration between the hire date of each employee and the hire date of the next employee hired in the same department.
 ```sql
     SELECT e1.id, e1.name, e1.hire_date, (MIN(e2.hire_date) - e1.hire_date) as Duration
     FROM employees AS e1
