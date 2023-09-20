@@ -211,7 +211,7 @@ with tab1:
         hit_selected_team.to_csv('output.csv',index=False)
         df = pd.read_csv('output.csv')
 # averages among ranking-qualified hitters across the MLB # (min.502 PA, min. 186 PA for shortened 2020 Season)
-        if selected_year == 2023 :
+        if selected_year == 2024 :
             qualifier = hit_stats[hit_stats['PA']>=1]
             qualified = pd.DataFrame(qualifier.mean())
             qualified.columns=['League Average per Hitter']
@@ -339,7 +339,7 @@ with tab2:
         pitch_selected_team.to_csv('output.csv',index=False)
         df = pd.read_csv('output.csv')
 # averages among ranking-qualified pitchers across the MLB # (min.162 IP)
-        if selected_year == 2023 :
+        if selected_year == 2024 :
             p_qualifier = pitch_stats[pitch_stats['GS']>=1]
             p_qualified = pd.DataFrame(p_qualifier.mean())
             p_qualified.columns=['League Average per Pitcher']
