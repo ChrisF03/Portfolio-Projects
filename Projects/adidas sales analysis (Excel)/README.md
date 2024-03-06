@@ -16,5 +16,6 @@ The objective of this data analysis project is to delve into Adidas U.S. sales d
 - Strengthen partnerships with top-performing retailers and explore opportunities for expansion.
 - Leverage seasonal trends to plan marketing and promotional activities effectively.
 
-![Adidas-Dashboard](https://github.com/ChrisF03/Portfolio-Projects/assets/103148784/9a99ead3-b645-4aa7-82c7-cb081346d562)
+![Adidas-Dashboard](https://github.com/ChrisF03/Portfolio-Projects/assets/103148784/c32df407-ec25-419c-88f8-1b420430f019)
+
 
