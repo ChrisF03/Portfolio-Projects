@@ -14,6 +14,8 @@ Which countries are receiving these exports ? <br>
 Which vendors are selling the most ? <br>
 What are the most transported brands ? <br>
 
+[DOWNLOAD EXCEL FILE HERE](https://github.com/ChrisF03/Portfolio-Projects/raw/main/Projects/supply%20chain%20analysis%20(Excel)/Supply_Chain_Analysis.xlsx)
+
 <!-- ##### - Used MS Excel to analyze 10,325 supply chain shipments and commodity pricing for HIV/AIDS medication from the U.S. from 2006-2015.
 
 ##### - Leveraged Pivot Tables to put together visualizations for a \textbf{filterable dashboard} containing information on top vendors, receiving countries, total shipments, etc by year.
