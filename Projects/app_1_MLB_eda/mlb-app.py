@@ -181,7 +181,7 @@ with tab1 :
     st.markdown(filedownload(hit_selected_team), unsafe_allow_html=True)
 ################# Exploratory Analysis Button for hitting tab ##################
 with tab1:
-    if st.button('Exploratory Analysis', key='hit'):
+    # if st.button('Exploratory Analysis', key='hit'):
         if selected_team is not None :
             st.header(f'''{str(selected_team[:]).replace("[", "").replace("]", "").replace("'","")} Team Analysis, ''' f'{(selected_year)}''')
         else :
@@ -317,7 +317,7 @@ with tab2 :
     st.markdown(filedownload(pitch_selected_team), unsafe_allow_html=True)
 ################# Exploratory Analysis Button for pitching tab #################
 with tab2:
-    if st.button('Exploratory Analysis', key='pitch'):
+    # if st.button('Exploratory Analysis', key='pitch'):
         if selected_team is not None :
             st.header(f'''{str(selected_team[:]).replace("[", "").replace("]", "").replace("'","")} Team Analysis, ''' f'{(selected_year)}''')
         else :
