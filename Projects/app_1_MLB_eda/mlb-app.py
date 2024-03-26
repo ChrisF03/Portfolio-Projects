@@ -27,14 +27,14 @@ st.header('Display Player Stats of Selected Team')
 tab1, tab2 = st.tabs(["Hitting", "Pitching"])
 
 st.sidebar.title('User Input Features')
-selected_year = st.sidebar.selectbox('Select Year', list(reversed(range(1983,2024))))
+selected_year = st.sidebar.selectbox('Select Year', list(reversed(range(1983,2025))))
 
 ################### Web scraping of MLB player stats ##########################
 # Hitting Stats #
 with tab1:
-    if selected_year == 2023 : 
+    if selected_year == 2024 : 
         def hit_data(current_year):
-            url = "https://www.baseball-reference.com/leagues/majors/2023-standard-batting.shtml"
+            url = "https://www.baseball-reference.com/leagues/majors/2024-standard-batting.shtml"
             r = requests.get(url).text
             stats_page = BeautifulSoup(r,'lxml')
             comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
@@ -81,7 +81,7 @@ with tab1:
 
 # Pitching Stats #
 with tab2:
-    if selected_year == 2023 : 
+    if selected_year == 2024 : 
         def pitch_data(year):
             url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-pitching.shtml"
             r = requests.get(url).text
