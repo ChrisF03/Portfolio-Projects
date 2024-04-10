@@ -16,7 +16,7 @@ import altair as alt
 
 st.set_page_config(page_title='MLB Analysis', page_icon=':baseball:',layout="wide")
 
-image = Image.open('mlb-logo.png') #.open(r"Projects/app_1_MLB_eda/mlb-logo.png") on GitHub
+image = Image.open(r"Projects/app_1_MLB_eda/mlb-logo.png")
 st.image(image, use_column_width=True)
 
 st.title('MLB Regular Season Stats Explorer')
