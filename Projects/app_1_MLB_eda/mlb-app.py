@@ -971,9 +971,9 @@ with tab2:
                     yaxis = {'categoryorder':'total descending'})
                 st.plotly_chart(whip_fig)
 
-            st.header("SO/9")
+            st.header("SO/9 (Starters)")
             if include_all_teams == True :
-                p_team = pitch_selected_team[pitch_selected_team['IP']>=9]
+                # p_team = pitch_selected_team[pitch_selected_team['IP']>=9]
                 SO9_sorted = p_team.reset_index().nlargest(10, 'SO9')
                 SO9_fig = px.bar(
                 SO9_sorted,
@@ -994,7 +994,7 @@ with tab2:
                 # st.bar_chart(team['RBI'].nlargest(10))
                 # st.bar_chart(team['OPS+'].nlargest(10))
             else :
-                p_team = pitch_selected_team[pitch_selected_team['IP']>=9]
+                # p_team = pitch_selected_team[pitch_selected_team['IP']>=9]
                 SO9_sorted = p_team.reset_index().nlargest(5, 'SO9')
                 SO9_fig = px.bar(
                     SO9_sorted,
