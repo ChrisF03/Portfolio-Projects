@@ -37,7 +37,7 @@ selected_year = st.sidebar.selectbox('Select Year', list(reversed(range(1998,202
 with tab1:
     if selected_year == 2024 : 
         def hit_data(current_year):
-            url = "https://www.baseball-reference.com/leagues/majors/2024-standard-batting.shtml"
+            url = "http://www.baseball-reference.com/leagues/majors/2024-standard-batting.shtml"
             r = requests.get(url).text
             stats_page = BeautifulSoup(r,'lxml')
             comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
@@ -68,7 +68,7 @@ with tab1:
     else :
         @st.cache_data
         def hit_data(year):
-            url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-batting.shtml"
+            url = "http://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-batting.shtml"
             r = requests.get(url).text
             stats_page = BeautifulSoup(r,'lxml')
             comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
@@ -102,7 +102,7 @@ with tab1:
 with tab2:
     if selected_year == 2024 : 
         def pitch_data(year):
-            url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-pitching.shtml"
+            url = "http://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-pitching.shtml"
             r = requests.get(url).text
             stats_page = BeautifulSoup(r,'lxml')
             comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
@@ -125,7 +125,7 @@ with tab2:
     else :
         @st.cache_data
         def pitch_data(year):
-            url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-pitching.shtml"
+            url = "http://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-pitching.shtml"
             r = requests.get(url).text
             stats_page = BeautifulSoup(r,'lxml')
             comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
