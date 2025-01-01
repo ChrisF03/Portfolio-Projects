@@ -96,7 +96,7 @@ with tab1:
             df = df.reset_index(drop=True)
             hit_stats = df.set_index('Name')
             return hit_stats
-    hit_stats = hit_data(selected_year)
+hit_stats = hit_data(selected_year)
 
 # Pitching Stats #
 with tab2:
