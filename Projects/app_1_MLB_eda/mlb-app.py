@@ -30,28 +30,26 @@ This app performs webscraping and analysis of MLB player stats data!
 tab1, tab2 = st.tabs(["Hitting", "Pitching"])
 
 st.sidebar.title('User Input Features')
-selected_year = st.sidebar.selectbox('Select Year', list(reversed(range(1998,2025))))
+selected_year = st.sidebar.selectbox('Select Year', list(reversed(range(1998,2026))))
 
 ################### Web scraping of MLB player stats ##########################
 # Hitting Stats #
 with tab1:
-    if selected_year == 2024 : 
+    if selected_year == 2025 : 
         def hit_data(current_year):
-            url = "https://www.baseball-reference.com/leagues/majors/2024-standard-batting.shtml"
+            url = "https://www.baseball-reference.com/leagues/majors/2025-standard-batting.shtml"
             r = requests.get(url).text
             stats_page = BeautifulSoup(r,'lxml')
-            comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
-            str1 = ''.join(comment)
-            test1 = BeautifulSoup(str1,'lxml')
-            data = pd.read_html(str(test1))
+            hit_stat_table = stats_page.find('table',{'id':'players_standard_batting'})
+            data = pd.read_html(str(hit_stat_table))
             df = pd.DataFrame(data[0])
-            df.drop(['Rk'],axis=1, inplace=True) #'Pos\xa0Summary'
+            df.drop(['Rk'],axis=1, inplace=True) #,'Pos\xa0Summary'
             df.drop(df.tail(1).index,inplace=True)
             df.drop_duplicates(keep=False,inplace=True)
-            col = (['Age','G','PA','AB','R','H','2B','3B','HR','RBI','SB','CS','BB','SO','BA','OBP','SLG','OPS','OPS+','TB','GDP','HBP','SH','SF','IBB'])
+            col = (['Age','G','PA','AB','R','H','2B','3B','HR','RBI','SB','CS','BB','SO','BA','OBP','SLG','OPS','OPS+','TB','GIDP','HBP','SH','SF','IBB'])
             for x in col:
                 df[x] = pd.to_numeric(df[x])
-            df = df[df.Tm != 'TOT']
+            df = df[df.Team != 'TOT']
             df = df.rename(columns={'Pos\xa0Summary': 'Pos'})
             column_to_move = df.pop('Pos')
             df.insert(3, 'Pos', column_to_move)
@@ -60,10 +58,10 @@ with tab1:
             positions = {'1':'P', '2':'C', '3':'1B', '4':'2B', '5':'3B', '6':'SS', '7':'LF', '8':'CF', '9':'RF'}
             df['Pos'] = df['Pos'].replace(positions)
             df['Pos'] = df['Pos'].astype(str)
-            df['Name'] = df['Name'].apply(lambda x: str(x).replace(u'\xa0', u' '))
-            df['Name'] = df['Name'].map(lambda x: x.rstrip('*#'))
+            df['Player'] = df['Player'].apply(lambda x: str(x).replace(u'\xa0', u' '))
+            df['Player'] = df['Player'].map(lambda x: x.rstrip('*#'))
             df = df.reset_index(drop=True)
-            hit_stats = df.set_index('Name')
+            hit_stats = df.set_index('Player')
             return hit_stats
     else :
         @st.cache_data
@@ -71,18 +69,16 @@ with tab1:
             url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-batting.shtml"
             r = requests.get(url).text
             stats_page = BeautifulSoup(r,'lxml')
-            comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
-            str1 = ''.join(comment)
-            test1 = BeautifulSoup(str1,'lxml')
-            data = pd.read_html(str(test1))
+            hit_stat_table = stats_page.find('table',{'id':'players_standard_batting'})
+            data = pd.read_html(str(hit_stat_table))
             df = pd.DataFrame(data[0])
             df.drop(['Rk'],axis=1, inplace=True) #,'Pos\xa0Summary'
             df.drop(df.tail(1).index,inplace=True)
             df.drop_duplicates(keep=False,inplace=True)
-            col = (['Age','G','PA','AB','R','H','2B','3B','HR','RBI','SB','CS','BB','SO','BA','OBP','SLG','OPS','OPS+','TB','GDP','HBP','SH','SF','IBB'])
+            col = (['Age','G','PA','AB','R','H','2B','3B','HR','RBI','SB','CS','BB','SO','BA','OBP','SLG','OPS','OPS+','TB','GIDP','HBP','SH','SF','IBB'])
             for x in col:
                 df[x] = pd.to_numeric(df[x])
-            df = df[df.Tm != 'TOT']
+            df = df[df.Team != 'TOT']
             df = df.rename(columns={'Pos\xa0Summary': 'Pos'})
             column_to_move = df.pop('Pos')
             df.insert(3, 'Pos', column_to_move)
@@ -91,36 +87,34 @@ with tab1:
             positions = {'1':'P', '2':'C', '3':'1B', '4':'2B', '5':'3B', '6':'SS', '7':'LF', '8':'CF', '9':'RF'}
             df['Pos'] = df['Pos'].replace(positions)
             df['Pos'] = df['Pos'].astype(str)
-            df['Name'] = df['Name'].apply(lambda x: str(x).replace(u'\xa0', u' '))
-            df['Name'] = df['Name'].map(lambda x: x.rstrip('*#'))
+            df['Player'] = df['Player'].apply(lambda x: str(x).replace(u'\xa0', u' '))
+            df['Player'] = df['Player'].map(lambda x: x.rstrip('*#'))
             df = df.reset_index(drop=True)
-            hit_stats = df.set_index('Name')
+            hit_stats = df.set_index('Player')
             return hit_stats
     hit_stats = hit_data(selected_year)
 
 # Pitching Stats #
 with tab2:
-    if selected_year == 2024 : 
+    if selected_year == 2025 : 
         def pitch_data(year):
-            url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-pitching.shtml"
+            url = "https://www.baseball-reference.com/leagues/majors/2025-standard-pitching.shtml"
             r = requests.get(url).text
             stats_page = BeautifulSoup(r,'lxml')
-            comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
-            str1 = ''.join(comment)
-            test1 = BeautifulSoup(str1,'lxml')
-            data = pd.read_html(str(test1))
+            pitch_stat_table = stats_page.find('table',{'id':'players_standard_pitching'})
+            data = pd.read_html(str(pitch_stat_table))
             df = pd.DataFrame(data[0])
             df.drop(['Rk'], axis=1, inplace=True)
             df.drop(df.tail(1).index,inplace=True)
             df.drop_duplicates(keep=False,inplace=True)
-            col = (['Age','W','L','W-L%','ERA','G','GS','GF','CG','SHO','SV','IP','H','R','ER','HR','BB','IBB','SO','HBP','BK','WP','BF','ERA+','FIP', 'WHIP','H9','HR9','BB9','SO9','SO/W'])
+            col = (['Age','W','L','W-L%','ERA','G','GS','GF','CG','SHO','SV','IP','H','R','ER','HR','BB','IBB','SO','HBP','BK','WP','BF','ERA+','FIP', 'WHIP','H9','HR9','BB9','SO9','SO/BB'])
             for x in col:
                 df[x] = pd.to_numeric(df[x])
-            df = df[df.Tm != 'TOT']
-            df['Name'] = df['Name'].apply(lambda x: str(x).replace(u'\xa0', u' '))
-            df['Name'] = df['Name'].map(lambda x: x.rstrip('*#'))
+            df = df[df.Team != 'TOT']
+            df['Player'] = df['Player'].apply(lambda x: str(x).replace(u'\xa0', u' '))
+            df['Player'] = df['Player'].map(lambda x: x.rstrip('*#'))
             #df = df.reset_index(drop=True)
-            pitch_stats = df.set_index('Name')
+            pitch_stats = df.set_index('Player')
             return pitch_stats
     else :
         @st.cache_data
@@ -128,22 +122,20 @@ with tab2:
             url = "https://www.baseball-reference.com/leagues/majors/" + str(year) + "-standard-pitching.shtml"
             r = requests.get(url).text
             stats_page = BeautifulSoup(r,'lxml')
-            comment = stats_page.find_all(text=lambda text:isinstance(text, Comment))
-            str1 = ''.join(comment)
-            test1 = BeautifulSoup(str1,'lxml')
-            data = pd.read_html(str(test1))
+            pitch_stat_table = stats_page.find('table',{'id':'players_standard_pitching'})
+            data = pd.read_html(str(pitch_stat_table))
             df = pd.DataFrame(data[0])
             df.drop(['Rk'], axis=1, inplace=True)
             df.drop(df.tail(1).index,inplace=True)
             df.drop_duplicates(keep=False,inplace=True)
-            col = (['Age','W','L','W-L%','ERA','G','GS','GF','CG','SHO','SV','IP','H','R','ER','HR','BB','IBB','SO','HBP','BK','WP','BF','ERA+','FIP', 'WHIP','H9','HR9','BB9','SO9','SO/W'])
+            col = (['Age','W','L','W-L%','ERA','G','GS','GF','CG','SHO','SV','IP','H','R','ER','HR','BB','IBB','SO','HBP','BK','WP','BF','ERA+','FIP', 'WHIP','H9','HR9','BB9','SO9','SO/BB'])
             for x in col:
                 df[x] = pd.to_numeric(df[x])
-            df = df[df.Tm != 'TOT']
-            df['Name'] = df['Name'].apply(lambda x: str(x).replace(u'\xa0', u' '))
-            df['Name'] = df['Name'].map(lambda x: x.rstrip('*#'))
+            df = df[df.Team != 'TOT']
+            df['Player'] = df['Player'].apply(lambda x: str(x).replace(u'\xa0', u' '))
+            df['Player'] = df['Player'].map(lambda x: x.rstrip('*#'))
             #df = df.reset_index(drop=True)
-            pitch_stats = df.set_index('Name')
+            pitch_stats = df.set_index('Player')
             return pitch_stats
     pitch_stats = pitch_data(selected_year)
 
@@ -222,7 +214,7 @@ with tab1:
             * A hitter qualifies for stat-ranking, when he averages 3.1 plate appearances per team game (186 PA's total for 2020).
             * Selecting a team(s) and/or position(s) will show up to the top 5 qualified players in that team/position for each category.
             ''')
-        elif selected_year == 2024:
+        elif selected_year == 2025:
             st.markdown('''
             * 'Select all' for both filters will show ranking-qualified league leaders for each stat.
             * A hitter qualifies for stat-ranking, when he averages 3.1 plate appearances per team game (502 PA's over a full 162-game season).
@@ -237,8 +229,8 @@ with tab1:
         hit_selected_team.to_csv('output.csv',index=False)
         df = pd.read_csv('output.csv')
 # averages among ranking-qualified hitters across the MLB # (min.502 PA, min. 186 PA for shortened 2020 Season)
-        if (selected_year == 2024):
-            qualifier = hit_stats[hit_stats['PA']>=258]
+        if (selected_year == 2025):
+            qualifier = hit_stats[hit_stats['PA']>=200]
             qualified = pd.DataFrame(qualifier.mean())
             qualified.columns=['League Average per Hitter']
             team = hit_selected_team[hit_selected_team['PA']>=258]
