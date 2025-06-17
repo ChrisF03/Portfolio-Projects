@@ -231,24 +231,24 @@ with tab1:
 # averages among ranking-qualified hitters across the MLB # (min.502 PA, min. 186 PA for shortened 2020 Season)
         if (selected_year == 2025):
             qualifier = hit_stats[hit_stats['PA']>=214]
-            qualified = pd.DataFrame(qualifier.mean())
+            qualified = pd.DataFrame(qualifier.mean(numeric_only=True))
             qualified.columns=['League Average per Hitter']
             team = hit_selected_team[hit_selected_team['PA']>=214]
-            team_qualified = pd.DataFrame(team.mean())
+            team_qualified = pd.DataFrame(team.mean(numeric_only=True))
             team_qualified.columns=[''f'{selected_team} ' 'Average per Hitter']
         elif (selected_year == 2020) :
             qualifier = hit_stats[hit_stats['PA']>=186]
-            qualified = pd.DataFrame(qualifier.mean())
+            qualified = pd.DataFrame(qualifier.mean(numeric_only=True))
             qualified.columns=['League Average per Hitter']
             team = hit_selected_team[hit_selected_team['PA']>=186]
-            team_qualified = pd.DataFrame(team.mean())
+            team_qualified = pd.DataFrame(team.mean(numeric_only=True))
             team_qualified.columns=[''f'{selected_team} ' 'Average per Hitter']
         else :
             qualifier = hit_stats[hit_stats['PA']>=502]
-            qualified = pd.DataFrame(qualifier.mean())
+            qualified = pd.DataFrame(qualifier.mean(numeric_only=True))
             qualified.columns=['League Average per Hitter']
             team = hit_selected_team[hit_selected_team['PA']>=502]
-            team_qualified = pd.DataFrame(team.mean())
+            team_qualified = pd.DataFrame(team.mean(numeric_only=True))
             team_qualified.columns=[''f'{selected_team} ' 'Average per Hitter']
 # league avg vs. team average amongst qualified hitters #
         compare = qualified.join(team_qualified)
@@ -633,24 +633,24 @@ with tab2:
 # averages among ranking-qualified pitchers across the MLB # (min.162 IP)
         if selected_year == 2025 :
             p_qualifier = pitch_stats[pitch_stats['IP'] >= 69]
-            p_qualified = pd.DataFrame(p_qualifier.mean())
+            p_qualified = pd.DataFrame(p_qualifier.mean(numeric_only=True))
             p_qualified.columns=['League Average per Pitcher']
             p_team = pitch_selected_team[pitch_selected_team['IP'] >= 69]
-            p_team_qualified = pd.DataFrame(p_team.mean())
+            p_team_qualified = pd.DataFrame(p_team.mean(numeric_only=True))
             p_team_qualified.columns=[''f'{selected_team} ' 'Average per Pitcher']
         elif selected_year == 2020 :
             p_qualifier = pitch_stats[pitch_stats['IP']>=60]
-            p_qualified = pd.DataFrame(p_qualifier.mean())
+            p_qualified = pd.DataFrame(p_qualifier.mean(numeric_only=True))
             p_qualified.columns=['League Average per Pitcher']
             p_team = pitch_selected_team[pitch_selected_team['IP']>=60]
-            p_team_qualified = pd.DataFrame(p_team.mean())
+            p_team_qualified = pd.DataFrame(p_team.mean(numeric_only=True))
             p_team_qualified.columns=[''f'{selected_team} ' 'Average per Pitcher']
         else :
             p_qualifier = pitch_stats[pitch_stats['IP']>=162]
-            p_qualified = pd.DataFrame(p_qualifier.mean())
+            p_qualified = pd.DataFrame(p_qualifier.mean(numeric_only=True))
             p_qualified.columns=['League Average per Pitcher']
             p_team = pitch_selected_team[pitch_selected_team['IP']>=162]
-            p_team_qualified = pd.DataFrame(p_team.mean())
+            p_team_qualified = pd.DataFrame(p_team.mean(numeric_only=True))
             p_team_qualified.columns=[''f'{selected_team} ' 'Average per Pitcher']
  # league avg vs. team average amongst qualified pitchers #
         p_compare = p_qualified.join(p_team_qualified)
