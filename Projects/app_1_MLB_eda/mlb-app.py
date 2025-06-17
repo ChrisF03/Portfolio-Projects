@@ -144,7 +144,7 @@ with tab2:
 data = [hit_stats, pitch_stats]
 mlb_df = pd.concat(data)
 
-unique_team = sorted(mlb_df.Tm.unique())
+unique_team = sorted(mlb_df.Team.unique())
 unique_pos = mlb_df['Pos'].dropna().unique()
 
 ###########  team filter
@@ -187,10 +187,10 @@ if include_all_teams and include_all_positions:
 elif include_all_teams:
     hit_selected_team = hit_stats[hit_stats['Pos'].isin(selected_position)]
 elif include_all_positions:
-    hit_selected_team = hit_stats[hit_stats['Tm'].isin(selected_team)]
+    hit_selected_team = hit_stats[hit_stats['Team'].isin(selected_team)]
 else:
     # Filter based on both selected team(s) and selected position(s)
-    hit_selected_team = hit_stats[(hit_stats['Tm'].isin(selected_team)) & (hit_stats['Pos'].isin(selected_position))]
+    hit_selected_team = hit_stats[(hit_stats['Team'].isin(selected_team)) & (hit_stats['Pos'].isin(selected_position))]
 
 
 # pitching tab #
@@ -198,7 +198,7 @@ else:
 if include_all_teams:
     pitch_selected_team = pitch_stats
 else:
-    pitch_selected_team = pitch_stats[pitch_stats['Tm'].isin(selected_team)]
+    pitch_selected_team = pitch_stats[pitch_stats['Team'].isin(selected_team)]
 
 ##################### Data Display for hitting tab ############################
 with tab1:
@@ -286,11 +286,11 @@ with tab1:
                 ba_fig = px.bar(
                     ba_sorted,
                     x = 'BA',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','BA','Tm', 'Pos', 'PA']
+                    hover_data=['Player','BA','Team', 'Pos', 'PA']
                 )
                 ba_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 ba_fig.update_xaxes(visible=False)
@@ -305,11 +305,11 @@ with tab1:
                 ba_fig = px.bar(
                     ba_sorted,
                     x = 'BA',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','BA', 'Tm', 'Pos', 'PA']
+                    hover_data=['Player','BA', 'Team', 'Pos', 'PA']
                 )
                 ba_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 ba_fig.update_xaxes(visible=False)
@@ -325,11 +325,11 @@ with tab1:
                 slg_fig = px.bar(
                     slg_sorted,
                     x = 'SLG',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','SLG','Tm', 'Pos', 'PA']
+                    hover_data=['Player','SLG','Team', 'Pos', 'PA']
                 )
                 slg_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 slg_fig.update_xaxes(visible=False)
@@ -346,11 +346,11 @@ with tab1:
                 slg_fig = px.bar(
                     slg_sorted,
                     x = 'SLG',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','SLG', 'Tm', 'Pos', 'PA']
+                    hover_data=['Player','SLG', 'Team', 'Pos', 'PA']
                 )
                 slg_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 slg_fig.update_xaxes(visible=False)
@@ -366,11 +366,11 @@ with tab1:
                 hr_fig = px.bar(
                     hr_sorted,
                     x = 'HR',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','HR','Tm', 'Pos', 'PA']
+                    hover_data=['Player','HR','Team', 'Pos', 'PA']
                 )
                 hr_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 hr_fig.update_xaxes(visible=False)
@@ -384,11 +384,11 @@ with tab1:
                 hr_fig = px.bar(
                     hr_sorted,
                     x = 'HR',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','HR', 'Tm', 'Pos', 'PA']
+                    hover_data=['Player','HR', 'Team', 'Pos', 'PA']
                 )
                 hr_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 hr_fig.update_xaxes(visible=False)
@@ -404,11 +404,11 @@ with tab1:
                 r_fig = px.bar(
                     r_sorted,
                     x = 'R',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','R','Tm',  'Pos','PA']
+                    hover_data=['Player','R','Team',  'Pos','PA']
                 )
                 r_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 r_fig.update_xaxes(visible=False)
@@ -423,11 +423,11 @@ with tab1:
                 r_fig = px.bar(
                     r_sorted,
                     x = 'R',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','R', 'Tm', 'Pos', 'PA']
+                    hover_data=['Player','R', 'Team', 'Pos', 'PA']
                 )
                 r_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 r_fig.update_xaxes(visible=False)
@@ -444,11 +444,11 @@ with tab1:
                 obp_fig = px.bar(
                     obp_sorted,
                     x = 'OBP',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','OBP','Tm', 'Pos', 'PA']
+                    hover_data=['Player','OBP','Team', 'Pos', 'PA']
                 )
                 obp_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 obp_fig.update_xaxes(visible=False)
@@ -463,11 +463,11 @@ with tab1:
                 obp_fig = px.bar(
                     obp_sorted,
                     x = 'OBP',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','OBP', 'Tm', 'Pos', 'PA']
+                    hover_data=['Player','OBP', 'Team', 'Pos', 'PA']
                 )
                 obp_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 obp_fig.update_xaxes(visible=False)
@@ -483,11 +483,11 @@ with tab1:
                 ops_fig = px.bar(
                     ops_sorted,
                     x = 'OPS',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','OPS','Tm', 'Pos', 'PA']
+                    hover_data=['Player','OPS','Team', 'Pos', 'PA']
                 )
                 ops_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 ops_fig.update_xaxes(visible=False)
@@ -501,11 +501,11 @@ with tab1:
                 ops_fig = px.bar(
                     ops_sorted,
                     x = 'OPS',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','OPS', 'Tm', 'Pos', 'PA']
+                    hover_data=['Player','OPS', 'Team', 'Pos', 'PA']
                 )
                 ops_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 ops_fig.update_xaxes(visible=False)
@@ -521,11 +521,11 @@ with tab1:
                 hit_fig = px.bar(
                     hit_sorted,
                     x = 'H',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','H','Tm', 'Pos', 'PA']
+                    hover_data=['Player','H','Team', 'Pos', 'PA']
                 )
                 hit_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 hit_fig.update_xaxes(visible=False)
@@ -539,11 +539,11 @@ with tab1:
                 hit_fig = px.bar(
                     hit_sorted,
                     x = 'RBI',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','RBI', 'Tm', 'Pos', 'PA']
+                    hover_data=['Player','RBI', 'Team', 'Pos', 'PA']
                 )
                 hit_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 hit_fig.update_xaxes(visible=False)
@@ -559,11 +559,11 @@ with tab1:
                 rbi_fig = px.bar(
                     rbi_sorted,
                     x = 'RBI',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','RBI','Tm', 'Pos','PA']
+                    hover_data=['Player','RBI','Team', 'Pos','PA']
                 )
                 rbi_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 rbi_fig.update_xaxes(visible=False)
@@ -577,11 +577,11 @@ with tab1:
                 rbi_fig = px.bar(
                     rbi_sorted,
                     x = 'RBI',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','RBI', 'Tm',  'Pos','PA']
+                    hover_data=['Player','RBI', 'Team',  'Pos','PA']
                 )
                 rbi_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 rbi_fig.update_xaxes(visible=False)
@@ -682,11 +682,11 @@ with tab2:
                 era_fig = px.bar(
                     era_sorted,
                     x = 'ERA',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','ERA','Tm', 'GS']
+                    hover_data=['Player','ERA','Team', 'GS']
                 )
                 era_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 era_fig.update_xaxes(visible=False)
@@ -700,11 +700,11 @@ with tab2:
                 era_fig = px.bar(
                     era_sorted,
                     x = 'ERA',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','ERA', 'Tm', 'GS']
+                    hover_data=['Player','ERA', 'Team', 'GS']
                 )
                 era_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 era_fig.update_xaxes(visible=False)
@@ -721,11 +721,11 @@ with tab2:
                 so_fig = px.bar(
                     so_sorted,
                     x = 'SO',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','SO','Tm', 'IP']
+                    hover_data=['Player','SO','Team', 'IP']
                 )
                 so_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 so_fig.update_xaxes(visible=False)
@@ -742,11 +742,11 @@ with tab2:
                 so_fig = px.bar(
                     so_sorted,
                     x = 'SO',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','SO', 'Tm', 'IP']
+                    hover_data=['Player','SO', 'Team', 'IP']
                 )
                 so_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 so_fig.update_xaxes(visible=False)
@@ -763,11 +763,11 @@ with tab2:
                 w_fig = px.bar(
                     w_sorted,
                     x = 'BB',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','BB','Tm', 'IP']
+                    hover_data=['Player','BB','Team', 'IP']
                 )
                 w_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 w_fig.update_xaxes(visible=False)
@@ -784,11 +784,11 @@ with tab2:
                 w_fig = px.bar(
                     w_sorted,
                     x = 'BB',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','BB', 'Tm', 'IP']
+                    hover_data=['Player','BB', 'Team', 'IP']
                 )
                 w_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 w_fig.update_xaxes(visible=False)
@@ -805,11 +805,11 @@ with tab2:
                 sv_fig = px.bar(
                     sv_sorted,
                     x = 'SV',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','SV','Tm', 'IP']
+                    hover_data=['Player','SV','Team', 'IP']
                 )
                 sv_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 sv_fig.update_xaxes(visible=False)
@@ -824,11 +824,11 @@ with tab2:
                 sv_fig = px.bar(
                     sv_sorted,
                     x = 'SV',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','SV', 'Tm', 'IP']
+                    hover_data=['Player','SV', 'Team', 'IP']
                 )
                 sv_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 sv_fig.update_xaxes(visible=False)
@@ -846,11 +846,11 @@ with tab2:
                 ip_fig = px.bar(
                     ip_sorted,
                     x = 'IP',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','IP', 'Tm']
+                    hover_data=['Player','IP', 'Team']
                 )
                 ip_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 ip_fig.update_xaxes(visible=False)
@@ -865,11 +865,11 @@ with tab2:
                 era_fig = px.bar(
                     era_sorted,
                     x = 'IP',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name', 'IP', 'Tm']
+                    hover_data=['Player', 'IP', 'Team']
                 )
                 era_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 era_fig.update_xaxes(visible=False)
@@ -886,11 +886,11 @@ with tab2:
                 ha_fig = px.bar(
                     era_sorted,
                     x = 'H',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','H','Tm', 'IP']
+                    hover_data=['Player','H','Team', 'IP']
                 )
                 ha_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 ha_fig.update_xaxes(visible=False)
@@ -907,11 +907,11 @@ with tab2:
                 ha_fig = px.bar(
                     ha_sorted,
                     x = 'H',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','H', 'Tm', 'IP']
+                    hover_data=['Player','H', 'Team', 'IP']
                 )
                 ha_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 ha_fig.update_xaxes(visible=False)
@@ -928,11 +928,11 @@ with tab2:
                 whip_fig = px.bar(
                     era_sorted,
                     x = 'WHIP',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','WHIP','Tm']
+                    hover_data=['Player','WHIP','Team']
                 )
                 whip_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 whip_fig.update_xaxes(visible=False)
@@ -949,11 +949,11 @@ with tab2:
                 whip_fig = px.bar(
                     whip_sorted,
                     x = 'WHIP',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','WHIP', 'Tm']
+                    hover_data=['Player','WHIP', 'Team']
                 )
                 whip_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 whip_fig.update_xaxes(visible=False)
@@ -970,11 +970,11 @@ with tab2:
                 SO9_fig = px.bar(
                 SO9_sorted,
                     x = 'SO9',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','SO9','Tm', 'IP']
+                    hover_data=['Player','SO9','Team', 'IP']
                 )
                 SO9_fig.update_traces(textfont_size=11, texttemplate='<b>%{x}</b>')
                 SO9_fig.update_xaxes(visible=False)
@@ -991,11 +991,11 @@ with tab2:
                 SO9_fig = px.bar(
                     SO9_sorted,
                     x = 'SO9',
-                    y = 'Name',
+                    y = 'Player',
                     text_auto = True,
                     height = 400,
                     width = 400,
-                    hover_data=['Name','SO9', 'Tm', 'IP']
+                    hover_data=['Player','SO9', 'Team', 'IP']
                 )
                 SO9_fig.update_traces(textfont_size=12, texttemplate='<b>%{x}</b>')
                 SO9_fig.update_xaxes(visible=False)
