@@ -230,7 +230,7 @@ with tab1:
         df = pd.read_csv('output.csv')
 # averages among ranking-qualified hitters across the MLB # (min.502 PA, min. 186 PA for shortened 2020 Season)
         if (selected_year == 2025):
-            qualifier = hit_stats[hit_stats['PA']>=214]
+            qualifier = hit_stats[hit_stats['PA']>=291.4]
             qualified = pd.DataFrame(qualifier.mean(numeric_only=True))
             qualified.columns=['League Average per Hitter']
             team = hit_selected_team[hit_selected_team['PA']>=214]
