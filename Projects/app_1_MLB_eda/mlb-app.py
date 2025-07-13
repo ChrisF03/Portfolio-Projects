@@ -632,10 +632,10 @@ with tab2:
         df = pd.read_csv('output.csv')
 # averages among ranking-qualified pitchers across the MLB # (min.162 IP)
         if selected_year == 2025 :
-            p_qualifier = pitch_stats[pitch_stats['IP'] >= 69]
+            p_qualifier = pitch_stats[pitch_stats['IP'] >= 94]
             p_qualified = pd.DataFrame(p_qualifier.mean(numeric_only=True))
             p_qualified.columns=['League Average per Pitcher']
-            p_team = pitch_selected_team[pitch_selected_team['IP'] >= 69]
+            p_team = pitch_selected_team[pitch_selected_team['IP'] >= 94]
             p_team_qualified = pd.DataFrame(p_team.mean(numeric_only=True))
             p_team_qualified.columns=[''f'{selected_team} ' 'Average per Pitcher']
         elif selected_year == 2020 :
